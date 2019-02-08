@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2833799528450893344}
   - component: {fileID: 2833799528450893535}
   - component: {fileID: 2833799528450893533}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 2833799529197972021}
   - component: {fileID: 2833799529197972022}
   - component: {fileID: 2833799529197972023}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -237,7 +237,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2833799529439458424}
   - component: {fileID: 2833799529439458425}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlyCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
