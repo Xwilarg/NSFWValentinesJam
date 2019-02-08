@@ -17,6 +17,10 @@ public class Soul : MonoBehaviour
     private void Update()
     {
         rb.velocity = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * Time.deltaTime * speed;
+        if (rb.velocity.x < -.0001f)
+            transform.localScale = new Vector3(1f, 1f, 1f);
+        if (rb.velocity.x > .0001f)
+            transform.localScale = new Vector3(-1f, 1f, 1f);
     }
 
     private void OnCollisionStay2D(Collision2D collision)
