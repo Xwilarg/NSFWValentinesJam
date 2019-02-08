@@ -180,6 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hiddenSprite: {fileID: 21300000, guid: 194fa28b27e26b14990c3f6edf058b45, type: 3}
   baseSprite: {fileID: 21300000, guid: 55ccece82ff3b834ea80ccfb16bbf94a, type: 3}
+  maxLife: 4
 --- !u!50 &2833799529197972022
 Rigidbody2D:
   serializedVersion: 4

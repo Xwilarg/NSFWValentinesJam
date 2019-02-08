@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(SpriteRenderer))]
@@ -11,12 +12,28 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Sprite hiddenSprite, baseSprite;
 
+    [SerializeField]
+    private int maxLife = 1;
+    float life;
+    [SerializeField]
+    private Slider slider;
+
+    void updateLife(float life)
+    {
+        this.life = life;
+        slider.value = life / maxLife;
+    }
+    
+
     private bool isHidding, isInWardrobe;
 
     private GameObject currentDoor, currentWardrobe;
 
     public void TakeDamage()
     {
+        float tmp = life - 0.05f;
+        tmp = (tmp >= 0.0f) ? tmp : 0.0f;
+        updateLife(tmp);
     }
 
     public bool IsHidden()
@@ -28,6 +45,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        updateLife(maxLife);
         isHidding = false;
         isInWardrobe = false;
         currentDoor = null;
