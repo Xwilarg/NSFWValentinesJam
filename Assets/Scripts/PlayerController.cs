@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.CompareTag("Door"))
             currentDoor = collision.gameObject;
-        else if (collision.CompareTag("currentWardrobe"))
+        else if (collision.CompareTag("Wardrobe"))
             currentWardrobe = collision.gameObject;
     }
 
@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.CompareTag("Door"))
             currentDoor = null;
-        else if (collision.CompareTag("currentWardrobe"))
+        else if (collision.CompareTag("Wardrobe"))
             currentWardrobe = null;
     }
 }
