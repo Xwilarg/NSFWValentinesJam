@@ -17213,6 +17213,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2833799529197972020, guid: 64b7f55185296584188e0dabac171930,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 2833799529197972021, guid: 64b7f55185296584188e0dabac171930,
         type: 3}
       propertyPath: slider

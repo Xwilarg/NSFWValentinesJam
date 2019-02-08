@@ -84,6 +84,10 @@ public class PlayerController : MonoBehaviour
         if (!isHidding)
         {
             rb.velocity = new Vector2(Input.GetAxis("Horizontal") * Time.deltaTime * speed, rb.velocity.y);
+            if (rb.velocity.x < -.0001f)
+                transform.localScale = new Vector3(1f, 1f, 1f);
+            if (rb.velocity.x > .0001f)
+                transform.localScale = new Vector3(-1f, 1f, 1f);
         }
         if (Input.GetButtonDown("Hide"))
         {
