@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Door
   - Wardrobe
+  - AI
   layers:
   - Default
   - TransparentFX
