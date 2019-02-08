@@ -6,12 +6,14 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
     private SpriteRenderer sr;
-    private const float speed = 300f;
+    private const float speed = 600f;
 
     [SerializeField]
     private Sprite hiddenSprite, baseSprite;
 
     private bool isHidding;
+
+    private GameObject currentDoor;
 
     private void Start()
     {
@@ -35,5 +37,19 @@ public class PlayerController : MonoBehaviour
             sr.sprite = baseSprite;
             isHidding = false;
         }
+        if (Input.GetButtonDown("Interract") && currentDoor != null)
+            transform.position = currentDoor.GetComponent<Door>().GetDoorPosition();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Door"))
+            currentDoor = collision.gameObject;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Door"))
+            currentDoor = null;
     }
 }
