@@ -32,20 +32,17 @@ public class RoomManager : MonoBehaviour
         {
             if (t.CompareTag("Player"))
                 continue;
+            Renderer renderer = t.GetComponent<Renderer>();
+            if (renderer != null)
+            {
+                TilemapRenderer tr = renderer as TilemapRenderer;
+                if (tr != null)
+                    tilemapRenderers.Add(tr);
+                else
+                    spriteRenderers.Add((SpriteRenderer)renderer);
+            }
             if (t.childCount > 0)
                 SaveChildren(t);
-            else
-            {
-                Renderer renderer = t.GetComponent<Renderer>();
-                if (renderer != null)
-                {
-                    TilemapRenderer tr = renderer as TilemapRenderer;
-                    if (tr != null)
-                        tilemapRenderers.Add(tr);
-                    else
-                        spriteRenderers.Add((SpriteRenderer)renderer);
-                }
-            }
         }
     }
 
