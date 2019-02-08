@@ -15,6 +15,15 @@ public class PlayerController : MonoBehaviour
 
     private GameObject currentDoor, currentWardrobe;
 
+    public void TakeDamage()
+    {
+    }
+
+    public bool IsHidden()
+    {
+        return (isHidding || isInWardrobe);
+    }
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
