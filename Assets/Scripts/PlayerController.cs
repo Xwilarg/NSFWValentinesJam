@@ -31,14 +31,36 @@ public class PlayerController : MonoBehaviour
             sr.sprite = hiddenSprite;
             rb.velocity = Vector2.zero;
             isHidding = true;
+            ActionOnChilds(transform.parent, false);
         }
         else if (Input.GetButtonUp("Hide"))
         {
             sr.sprite = baseSprite;
             isHidding = false;
+            ActionOnChilds(transform.parent, true);
         }
         if (Input.GetButtonDown("Interract") && currentDoor != null)
-            transform.position = currentDoor.GetComponent<Door>().GetDoorPosition();
+        {
+            Transform output = currentDoor.GetComponent<Door>().GetDoorTransform();
+            transform.position = output.position;
+            transform.parent = output.parent.parent;
+        }
+    }
+
+    private void ActionOnChilds(Transform parent, bool state)
+    {
+        foreach (Transform t in parent)
+        {
+            if (t.CompareTag("Player"))
+                continue;
+            if (t.childCount > 0)
+                ActionOnChilds(t, state);
+            else
+            {
+                Renderer renderer = t.GetComponent<Renderer>();
+                renderer.enabled = state;
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

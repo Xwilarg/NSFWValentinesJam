@@ -5,8 +5,8 @@ public class Door : MonoBehaviour
     [SerializeField]
     private Door door;
 
-    public Vector2 GetDoorPosition()
+    public Transform GetDoorTransform()
     {
-        return (door.transform.position);
+        return (door.transform);
     }
 }
