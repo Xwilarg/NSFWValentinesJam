@@ -69,8 +69,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1239836817
-  m_SortingLayer: 1
+  m_SortingLayerID: 1430410853
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: dc8dc5fde629e914685e044dba7872c9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -208,6 +208,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6132859802072979288, guid: ead4ee5e2ca24b54fa88531701963229,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1430410853
+      objectReference: {fileID: 0}
+    - target: {fileID: 6132859802072979288, guid: ead4ee5e2ca24b54fa88531701963229,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4841695443039160504, guid: ead4ee5e2ca24b54fa88531701963229,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].x
+      value: 1.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 4841695443039160504, guid: ead4ee5e2ca24b54fa88531701963229,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].y
+      value: -1.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ead4ee5e2ca24b54fa88531701963229, type: 3}
