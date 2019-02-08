@@ -16,13 +16,13 @@ public class Wardrobe : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
     }
 
-    private void Enter()
+    public void Enter()
     {
         sr.sprite = spriteGhost;
         isEmpty = true;
     }
 
-    private void Exit()
+    public void Exit()
     {
         sr.sprite = spriteEmpty;
     }
