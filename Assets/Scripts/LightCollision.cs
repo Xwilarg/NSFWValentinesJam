@@ -1,26 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class LightCollision : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private PlayerController pc;
+
+    private void Start()
     {
+        pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerStay2D(Collider2D collision)
     {
-    }
-
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        print("ENTER ID:" + collision.name);
-    }
-
-    void OnTriggerExit2D(Collider2D collision)
-    {
-        print("EXIT ID:" + collision.name);
+        if (collision.CompareTag("Player"))
+        {
+            PlayerController pc = collision.GetComponent<PlayerController>();
+            if (!pc.IsHidden())
+                pc.TakeDamage();
+        }
     }
 }
