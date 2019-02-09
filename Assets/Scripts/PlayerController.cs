@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer sr;
     private const float speed = 600f;
 
+    private const int maxMentalHealth = 10;
+    private int currMentalHealth;
+
     [SerializeField]
     private Sprite hiddenSprite, baseSprite;
 
@@ -16,7 +19,7 @@ public class PlayerController : MonoBehaviour
     private int maxLife = 1;
     float life;
     [SerializeField]
-    private Slider slider;
+    private Slider sliderClothes, sliderMentalHealth;
 
     private int holyWaterCount;
 
@@ -26,7 +29,7 @@ public class PlayerController : MonoBehaviour
     void updateLife(float life)
     {
         this.life = life;
-        slider.value = life / maxLife;
+        sliderClothes.value = life / maxLife;
     }
 
     private bool isHidding, isInWardrobe;
@@ -65,6 +68,7 @@ public class PlayerController : MonoBehaviour
         currentDoor = null;
         currentWardrobe = null;
         holyWaterCount = 0;
+        currMentalHealth = maxMentalHealth;
     }
 
     private void Update()
@@ -86,12 +90,18 @@ public class PlayerController : MonoBehaviour
             {
                 if (isInWardrobe)
                 {
+                    gameObject.layer = 8;
+                    foreach (Transform t in gameObject.transform)
+                        t.gameObject.layer = 8;
                     sr.enabled = true;
                     isInWardrobe = false;
                     currentWardrobe.GetComponent<Wardrobe>().Exit();
                 }
                 else
                 {
+                    gameObject.layer = 12;
+                    foreach (Transform t in gameObject.transform)
+                        t.gameObject.layer = 12;
                     rb.velocity = Vector2.zero;
                     isInWardrobe = true;
                     sr.enabled = false;
@@ -142,5 +152,21 @@ public class PlayerController : MonoBehaviour
         }
         else if (collision.CompareTag("Wardrobe"))
             currentWardrobe = null;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.name == "Soul")
+        {
+            transform.parent.GetComponent<RoomManager>().RemoveSprite(collision.collider.GetComponent<SpriteRenderer>());
+            Destroy(collision.collider.gameObject);
+        }
+    }
+
+    private void LooseMentalHealth()
+    {
+        currMentalHealth--;
+        sliderMentalHealth.value = currMentalHealth / maxMentalHealth;
+        // TODO: GameOver
     }
 }

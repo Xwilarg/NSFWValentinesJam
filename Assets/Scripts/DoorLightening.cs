@@ -36,6 +36,7 @@ public class DoorLightening : MonoBehaviour
             otherDoor.LightNone();
             return;
         }
+        closeGos.RemoveAll(x => x == null);
         GameObject closest = null;
         float distance = float.MaxValue;
         foreach (GameObject go in closeGos)
