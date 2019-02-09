@@ -44,7 +44,7 @@ public class RoomManager : MonoBehaviour
     {
         foreach (Transform t in parent)
         {
-            if (t.CompareTag("Player"))
+            if (t.CompareTag("Player") || t.name == "Soul")
                 continue;
             Renderer renderer = t.GetComponent<Renderer>();
             if (renderer != null)

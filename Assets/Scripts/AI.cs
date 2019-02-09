@@ -22,12 +22,17 @@ public class AI : MonoBehaviour
     private void Update()
     {
         foreach (Collider2D collision in lightCollision.getCollidings()) {
-            if (collision.CompareTag("Player"))
+            try
             {
-                PlayerController pc = collision.GetComponent<PlayerController>();
-                if (!pc.IsHidden())
-                    pc.TakeDamage();
+                if (collision.CompareTag("Player"))
+                {
+                    PlayerController pc = collision.GetComponent<PlayerController>();
+                    if (!pc.IsHidden())
+                        pc.TakeDamage();
+                }
             }
+            catch (System.Exception)
+            { }
         }
         rb.velocity = new Vector2(((goLeft) ? -1 : 1) * speed * Time.deltaTime, rb.velocity.y);
         RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(((goLeft) ? -1 : 1), 0f), maxDist, 1 << 10);

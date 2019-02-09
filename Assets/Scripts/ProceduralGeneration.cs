@@ -53,14 +53,33 @@ public class ProceduralGeneration : MonoBehaviour
             soulGo.name = "Soul";
         }
         randomInt = Random.Range(0, 3);
-        if (randomInt < 0)
-            randomInt = 0;
         for (int i = 0; i < randomInt; i++)
         {
             GameObject soulGo = Instantiate(teacherPrefab, other);
             soulGo.transform.localPosition = new Vector2(Random.Range(-7f, 24f), yPos);
         }
+        randomInt = Random.Range(-1, 3);
+        if (randomInt < 0)
+            randomInt = 0;
+        for (int i = 0; i < randomInt; i++)
+        {
+            GameObject doorGo = Instantiate(prefabDoor, other);
+            doorGo.transform.localPosition = new Vector2(i * 10f, yPos);
+            GenerateRoom(doorGo.GetComponent<Door>(), i);
+        }
         currX += 150f;
         return (doorExit.GetComponent<Door>());
+    }
+
+    private void GenerateRoom(Door lastDoor, float i)
+    {
+        GameObject go = Instantiate(prefabRoom, new Vector2(currX + i * 10f, 100f + i * 100f), Quaternion.identity);
+        go.transform.parent = transform;
+        Transform other = go.transform.GetChild(2);
+        GameObject doorEntrance = Instantiate(prefabDoor, go.transform);
+        doorEntrance.transform.localPosition = new Vector2(20f, yPos);
+        Door me = doorEntrance.GetComponent<Door>();
+        me.SetDoor(lastDoor);
+        lastDoor.SetDoor(me);
     }
 }
