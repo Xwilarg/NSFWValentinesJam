@@ -12,11 +12,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SealedDoor
       objectReference: {fileID: 0}
-    - target: {fileID: 6220969202768787641, guid: 466df5404882aeb48ac5e5465e43ec0a,
-        type: 3}
-      propertyPath: isLocked
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6220969202768787642, guid: 466df5404882aeb48ac5e5465e43ec0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -71,6 +66,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6220969202768787641, guid: 466df5404882aeb48ac5e5465e43ec0a,
+        type: 3}
+      propertyPath: isLocked
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6220969202768787643, guid: 466df5404882aeb48ac5e5465e43ec0a,
         type: 3}

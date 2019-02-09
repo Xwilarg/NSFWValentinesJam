@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class DoorLightening : MonoBehaviour
 {
-    private List<GameObject> closeGos;
+    private List<GameObject> closeGos = new List<GameObject>();
 
     DoorLightening otherDoor;
 
@@ -12,7 +12,6 @@ public class DoorLightening : MonoBehaviour
 
     private void Start()
     {
-        closeGos = new List<GameObject>();
         int tmp = 1;
         otherDoor = transform.parent.GetComponent<Door>().GetNextDoor(ref tmp).GetComponentInChildren<DoorLightening>();
     }

@@ -9,7 +9,10 @@ public class ProceduralGeneration : MonoBehaviour
     private GameObject prefabDoor, prefabDoorLocked;
 
     [SerializeField]
-    private Door firstDoor;
+    private Door firstDoor, lastDoor;
+
+    [SerializeField]
+    private GameObject soulPrefab, teacherPrefab, firstYearPrefab, secondYearPrefab, thirdYearPrefab;
 
     private float currX;
 
@@ -20,10 +23,12 @@ public class ProceduralGeneration : MonoBehaviour
     private void Start()
     {
         currX = 50f;
-        int maxRoom = Random.Range(10, 15);
+        int maxRoom = Random.Range(5, 7);
         Door d = firstDoor;
         for (int i = 0; i < maxRoom; i++)
             d = GenerateCorridor(d);
+        d.SetDoor(lastDoor);
+        lastDoor.SetDoor(d);
     }
 
     private Door GenerateCorridor(Door lastDoor)
@@ -38,6 +43,22 @@ public class ProceduralGeneration : MonoBehaviour
         lastDoor.SetDoor(me);
         GameObject doorExit = Instantiate(prefabDoor, other);
         doorExit.transform.localPosition = new Vector2(xPosEnd, yPos);
+        int randomInt = Random.Range(-1, 5);
+        if (randomInt < 0)
+            randomInt = 0;
+        for (int i = 0; i < randomInt; i++)
+        {
+            GameObject soulGo = Instantiate(soulPrefab, other);
+            soulGo.transform.localPosition = new Vector2(Random.Range(-7f, 24f), yPos);
+        }
+        randomInt = Random.Range(0, 3);
+        if (randomInt < 0)
+            randomInt = 0;
+        for (int i = 0; i < randomInt; i++)
+        {
+            GameObject soulGo = Instantiate(teacherPrefab, other);
+            soulGo.transform.localPosition = new Vector2(Random.Range(-7f, 24f), yPos);
+        }
         currX += 150f;
         return (doorExit.GetComponent<Door>());
     }
