@@ -50,6 +50,7 @@ public class ProceduralGeneration : MonoBehaviour
         {
             GameObject soulGo = Instantiate(soulPrefab, other);
             soulGo.transform.localPosition = new Vector2(Random.Range(-7f, 24f), yPos);
+            soulGo.name = "Soul";
         }
         randomInt = Random.Range(0, 3);
         if (randomInt < 0)

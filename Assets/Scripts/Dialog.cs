@@ -15,8 +15,10 @@ public class Dialog : MonoBehaviour
 
     public void Launch()
     {
-        id++;
-        if (id == 1)
+        voice = GameObject.FindGameObjectWithTag("Sound").GetComponent<SoundManager>();
+        if (id == 0)
+            Enable(Constants.GetLine("student", Constants.LanguageName.en) + " 1", Constants.GetLine("invocation0", Constants.LanguageName.en), voice.sounds["invoCthulhu"]);
+        else if (id == 1)
             Enable(Constants.GetLine("student", Constants.LanguageName.en) + " 1", Constants.GetLine("invocation1", Constants.LanguageName.en), voice.sounds["footstep"]);
         else if (id == 2)
             Enable(Constants.GetLine("student", Constants.LanguageName.en) + " 2", Constants.GetLine("invocation2", Constants.LanguageName.en), voice.sounds["footstep"]);
@@ -32,6 +34,7 @@ public class Dialog : MonoBehaviour
             Enable("Tsuma", Constants.GetLine("invocation7", Constants.LanguageName.en), voice.sounds["footstep"]);
         else if (id == 8)
             SceneManager.LoadScene("Main");
+        id++;
     }
 
     private void Enable(string name, string content, AudioClip sound)

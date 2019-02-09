@@ -44,6 +44,7 @@
     static Language[] lines = new Language[]
     {
         new Language("student", "Etudiant", "Student",    "Leerling"),
+        new Language("invocation0", "c'ai grah'n, nog orr'e c'sll'ha r'luh!\nk'yarnak n'ghftor ngcnnn'bthnk n'gha", "c'ai grah'n, nog orr'e c'sll'ha r'luh!\nk'yarnak n'ghftor ngcnnn'bthnk n'gha", "c'ai grah'n, nog orr'e c'sll'ha r'luh!\nk'yarnak n'ghftor ngcnnn'bthnk n'gha"),
         new Language("invocation1", "Ca s'ouvre, ça s'ouvre!", "It's opening, it's opening!",    "Het opent, het opent!"),
         new Language("invocation2", "Quelque chose sort", "Something is coming out",        "Er komt iets uit"),
         new Language("invocation3", "Soyez prets a l'attraper", "Be ready to get her!",           "Wees klaar om haar te pakken!"),

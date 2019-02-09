@@ -11,6 +11,8 @@ namespace Sound
 
         private void Start()
         {
+            sounds = new Dictionary<string, AudioClip>();
+
             sounds.Add("breathing", audioClips[0]);
             sounds.Add("dmgClothe", audioClips[1]);
             sounds.Add("dedStudent", audioClips[2]);
@@ -29,6 +31,7 @@ namespace Sound
             sounds.Add("end2", audioClips[15]);
             sounds.Add("end3", audioClips[16]);
             sounds.Add("duoCG", audioClips[17]);
+            sounds.Add("invoCthulhu", audioClips[18]);
         }
     }
 }
