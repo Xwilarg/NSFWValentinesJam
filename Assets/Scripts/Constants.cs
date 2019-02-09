@@ -43,6 +43,7 @@
 
     static Language[] lines = new Language[]
     {
+        new Language("guy", "", "Guy",    "Guy"),
         new Language("invocation1", "", "It's opening, it's opening!",    "Het opent, het opent!"),
         new Language("invocation2", "", "Something is coming out",        "Er komt iets uit"),
         new Language("invocation3", "", "Be ready to get her!",           "Wees klaar om haar te pakken!"),
