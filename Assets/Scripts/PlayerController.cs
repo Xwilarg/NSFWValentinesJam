@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
                     transform.position = d.transform.position;
                     transform.parent = d.transform.parent.parent;
                     currentDoor = d.gameObject;
-                    holyWaterText.text = "Holy Water: " + holyWaterCount;
+                    holyWaterText.text = holyWaterCount.ToString();
                 }
             }
             else if (currentWardrobe != null)
@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
                     isInWardrobe = true;
                     sr.enabled = false;
                     currentWardrobe.GetComponent<Wardrobe>().Enter(ref holyWaterCount);
-                    holyWaterText.text = "Holy Water: " + holyWaterCount;
+                    holyWaterText.text = holyWaterCount.ToString();
                 }
             }
         }
