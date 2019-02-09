@@ -68,9 +68,10 @@ public class PlayerController : MonoBehaviour
         {
             if (!isHidding && currentDoor != null)
             {
-                Transform output = currentDoor.GetComponent<Door>().GetDoorTransform();
-                transform.position = output.position;
-                transform.parent = output.parent.parent;
+                Door d = currentDoor.GetComponent<Door>().GetNextDoor();
+                transform.position = d.transform.position;
+                transform.parent = d.transform.parent.parent;
+                currentDoor = d.gameObject;
             }
             else if (currentWardrobe != null)
             {
@@ -125,7 +126,10 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Door"))
-            currentDoor = null;
+        {
+            if (currentDoor != null && currentDoor.name == collision.name)
+                currentDoor = null;
+        }
         else if (collision.CompareTag("Wardrobe"))
             currentWardrobe = null;
     }

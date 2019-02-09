@@ -5,8 +5,8 @@ public class Door : MonoBehaviour
     [SerializeField]
     private Door door;
 
-    public Transform GetDoorTransform()
+    public Door GetNextDoor()
     {
-        return (door.transform);
+        return (door);
     }
 }
