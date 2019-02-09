@@ -27,14 +27,14 @@ public class OccultLv1 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (pc != null && collision.CompareTag("Door"))
+        if (playerFound != false && collision.CompareTag("Door"))
         {
             isOnDoor = true;
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (pc != null && collision.CompareTag("Door"))
+        if (playerFound != false && collision.CompareTag("Door"))
         {
             isOnDoor = true;
         }
@@ -67,7 +67,7 @@ public class OccultLv1 : MonoBehaviour
             }
         } else {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(((goLeft) ? -1 : 1), 0f), maxDist, 1 << 10);
-            if (isOnDoor || hit.distance > 0f)
+            if (isOnDoor || hit.distance > 0.0001f)
             {
                 GameObject go = Instantiate(toSpawn, gameObject.transform.position, gameObject.transform.rotation);
                 SpriteRenderer mainSR = go.GetComponent<SpriteRenderer>();
