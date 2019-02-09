@@ -69,9 +69,12 @@ public class PlayerController : MonoBehaviour
             if (!isHidding && currentDoor != null)
             {
                 Door d = currentDoor.GetComponent<Door>().GetNextDoor();
-                transform.position = d.transform.position;
-                transform.parent = d.transform.parent.parent;
-                currentDoor = d.gameObject;
+                if (d != null)
+                {
+                    transform.position = d.transform.position;
+                    transform.parent = d.transform.parent.parent;
+                    currentDoor = d.gameObject;
+                }
             }
             else if (currentWardrobe != null)
             {
