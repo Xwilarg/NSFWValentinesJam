@@ -40,23 +40,43 @@ public class DoorLightening : MonoBehaviour
             otherDoor.LightNone();
             return;
         }
-        GameObject closest = null;
-        float distance = float.MaxValue;
+        GameObject closestYellow = null;
+        float distanceYellow = float.MaxValue;
+        GameObject closestPurple = null;
+        float distancePurple = float.MaxValue;
         foreach (GameObject go in closeGos)
         {
             float currDist = Vector2.Distance(transform.position, go.transform.position);
-            if (closest == null || currDist < distance)
+            if (go.GetComponent<AI>() == null)
             {
-                closest = go;
-                distance = currDist;
+                if (closestPurple == null || currDist < distancePurple)
+                {
+                    closestPurple = go;
+                    distancePurple = currDist;
+                }
+            }
+            else
+            {
+                if (closestYellow == null || currDist < distanceYellow)
+                {
+                    closestYellow = go;
+                    distanceYellow = currDist;
+                }
             }
         }
-        distance = Mathf.Clamp(distance, 0f, 10f);
-        distance = 1f - distance / 10f;
-        if (closest.GetComponent<AI>() != null)
-            otherDoor.LightYellow(distance);
-        else
-            otherDoor.LightPurple(distance);
+        LightNone();
+        if (closestYellow != null)
+        {
+            distanceYellow = Mathf.Clamp(distanceYellow, 0f, 10f);
+            distanceYellow = 1f - distanceYellow / 10f;
+            otherDoor.LightYellow(distanceYellow);
+        }
+        if (closestPurple != null)
+        {
+            distancePurple = Mathf.Clamp(distancePurple, 0f, 10f);
+            distancePurple = 1f - distancePurple / 10f;
+            otherDoor.LightPurple(distancePurple);
+        }
     }
 
     public void LightNone()
@@ -69,12 +89,10 @@ public class DoorLightening : MonoBehaviour
     {
         yellowLight.gameObject.SetActive(true);
         yellowLight.color = new Color(yellowLight.color.r, yellowLight.color.g, yellowLight.color.b, intensity);
-        purpleLight.gameObject.SetActive(false);
     }
 
     public void LightPurple(float intensity)
     {
-        yellowLight.gameObject.SetActive(false);
         purpleLight.gameObject.SetActive(true);
         purpleLight.color = new Color(purpleLight.color.r, purpleLight.color.g, purpleLight.color.b, intensity);
     }
