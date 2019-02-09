@@ -4,7 +4,7 @@
 public class OccultLv1 : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private const float speed = 100f;
+    private const float speed = 300f;
     private const float runSpeed = 600f;
     private const float maxDist = 2f;
 

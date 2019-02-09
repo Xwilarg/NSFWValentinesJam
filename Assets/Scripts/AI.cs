@@ -1,11 +1,10 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class AI : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private const float speed = 100f;
+    private const float speed = 300f;
     private const float maxDist = 2f;
     private PlayerController pc;
     private bool goLeft;
