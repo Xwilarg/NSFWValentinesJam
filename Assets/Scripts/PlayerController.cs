@@ -158,6 +158,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.collider.name == "Soul")
         {
+            LooseMentalHealth();
             transform.parent.GetComponent<RoomManager>().RemoveSprite(collision.collider.GetComponent<SpriteRenderer>());
             foreach (DoorLightening d in transform.parent.GetComponentsInChildren<DoorLightening>())
                 d.RemoveGo(collision.collider.gameObject);
@@ -168,7 +169,7 @@ public class PlayerController : MonoBehaviour
     private void LooseMentalHealth()
     {
         currMentalHealth--;
-        sliderMentalHealth.value = currMentalHealth / maxMentalHealth;
+        sliderMentalHealth.value = (float)currMentalHealth / maxMentalHealth;
         // TODO: GameOver
     }
 }
