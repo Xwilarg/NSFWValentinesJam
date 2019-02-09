@@ -8,6 +8,11 @@ public class Door : MonoBehaviour
     [SerializeField]
     bool isLocked;
 
+    public void SetDoor(Door d)
+    {
+        door = d;
+    }
+
     public Door GetNextDoor(ref int holyWaterCount)
     {
         if (isLocked)
