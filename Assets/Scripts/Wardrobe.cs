@@ -10,14 +10,22 @@ public class Wardrobe : MonoBehaviour
     [SerializeField]
     private Sprite spriteEmpty, spriteGhost;
 
+    [SerializeField]
+    private bool containHolyWater;
+
     private void Start()
     {
         isEmpty = false;
         sr = GetComponent<SpriteRenderer>();
     }
 
-    public void Enter()
+    public void Enter(ref int holyWaterCount)
     {
+        if (containHolyWater)
+        {
+            holyWaterCount++;
+            containHolyWater = false;
+        }
         sr.sprite = spriteGhost;
         isEmpty = true;
     }

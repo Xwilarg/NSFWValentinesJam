@@ -18,12 +18,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Slider slider;
 
+    private int holyWaterCount;
+
+    [SerializeField]
+    private Text holyWaterText;
+
     void updateLife(float life)
     {
         this.life = life;
         slider.value = life / maxLife;
     }
-    
 
     private bool isHidding, isInWardrobe;
 
@@ -60,6 +64,7 @@ public class PlayerController : MonoBehaviour
         isInWardrobe = false;
         currentDoor = null;
         currentWardrobe = null;
+        holyWaterCount = 0;
     }
 
     private void Update()
@@ -68,12 +73,13 @@ public class PlayerController : MonoBehaviour
         {
             if (!isHidding && currentDoor != null)
             {
-                Door d = currentDoor.GetComponent<Door>().GetNextDoor();
+                Door d = currentDoor.GetComponent<Door>().GetNextDoor(ref holyWaterCount);
                 if (d != null)
                 {
                     transform.position = d.transform.position;
                     transform.parent = d.transform.parent.parent;
                     currentDoor = d.gameObject;
+                    holyWaterText.text = "Holy Water: " + holyWaterCount;
                 }
             }
             else if (currentWardrobe != null)
@@ -89,7 +95,8 @@ public class PlayerController : MonoBehaviour
                     rb.velocity = Vector2.zero;
                     isInWardrobe = true;
                     sr.enabled = false;
-                    currentWardrobe.GetComponent<Wardrobe>().Enter();
+                    currentWardrobe.GetComponent<Wardrobe>().Enter(ref holyWaterCount);
+                    holyWaterText.text = "Holy Water: " + holyWaterCount;
                 }
             }
         }
