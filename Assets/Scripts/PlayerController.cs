@@ -159,6 +159,8 @@ public class PlayerController : MonoBehaviour
         if (collision.collider.name == "Soul")
         {
             transform.parent.GetComponent<RoomManager>().RemoveSprite(collision.collider.GetComponent<SpriteRenderer>());
+            foreach (DoorLightening d in transform.parent.GetComponentsInChildren<DoorLightening>())
+                d.RemoveGo(collision.collider.gameObject);
             Destroy(collision.collider.gameObject);
         }
     }
