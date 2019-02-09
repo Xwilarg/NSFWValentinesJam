@@ -9,16 +9,22 @@ public class ProceduralGeneration : MonoBehaviour
     private GameObject prefabDoor, prefabDoorLocked;
 
     [SerializeField]
+    private GameObject prefabLocker;
+
+    [SerializeField]
     private Door firstDoor, lastDoor;
 
     [SerializeField]
     private GameObject soulPrefab, teacherPrefab, firstYearPrefab, secondYearPrefab, thirdYearPrefab;
 
+    [SerializeField]
+    private GameObject[] otherPrefabs;
+
     private float currX;
 
     const float yPos = -1.5f;
-    const float xPosStart = -7f;
-    const float xPosEnd = 24f;
+    const float xPosStart = -8f;
+    const float xPosEnd = 25f;
 
     private void Start()
     {
@@ -31,8 +37,37 @@ public class ProceduralGeneration : MonoBehaviour
         lastDoor.SetDoor(d);
     }
 
+    public enum objectType
+    {
+        Door,
+        Locker,
+        Other
+    }
+
+    public class Item
+    {
+        public Item(float xValue, objectType type)
+        {
+            this.xValue = xValue;
+            this.type = type;
+        }
+
+        public float xValue;
+        public objectType type;
+    }
+
     private Door GenerateCorridor(Door lastDoor)
     {
+        // -7 --> 27
+        Item[] items = new Item[]
+        {
+            new Item(-3f, objectType.Other),
+            new Item(2f, objectType.Other),
+            new Item(7f, objectType.Other),
+            new Item(12f, objectType.Other),
+            new Item(17f, objectType.Other),
+            new Item(22f, objectType.Other),
+        };
         GameObject go = Instantiate(prefabCorridor, new Vector2(currX, 0f), Quaternion.identity);
         go.transform.parent = transform;
         Transform other = go.transform.GetChild(2);
@@ -63,9 +98,49 @@ public class ProceduralGeneration : MonoBehaviour
             randomInt = 0;
         for (int i = 0; i < randomInt; i++)
         {
-            GameObject doorGo = Instantiate(prefabDoor, other);
-            doorGo.transform.localPosition = new Vector2(i * 10f, yPos);
-            GenerateRoom(doorGo.GetComponent<Door>(), i);
+            int value;
+            do
+            {
+                value = Random.Range(0, items.Length);
+            } while (items[value].type != objectType.Other);
+            items[value].type = objectType.Door;
+        }
+        randomInt = Random.Range(-1, 4);
+        if (randomInt < 0)
+            randomInt = 0;
+        for (int i = 0; i < randomInt; i++)
+        {
+            int value;
+            do
+            {
+                value = Random.Range(0, items.Length);
+            } while (items[value].type != objectType.Other);
+            items[value].type = objectType.Locker;
+        }
+        for (int i = 0; i < items.Length; i++)
+        {
+            switch (items[i].type)
+            {
+                case objectType.Door:
+                    GameObject doorGo = Instantiate(prefabDoor, other);
+                    doorGo.transform.localPosition = new Vector2(items[i].xValue, yPos);
+                    GenerateRoom(doorGo.GetComponent<Door>(), i);
+                    break;
+
+                case objectType.Locker:
+                    GameObject lockerGo = Instantiate(prefabLocker, other);
+                    lockerGo.transform.localPosition = new Vector2(items[i].xValue, yPos);
+                    break;
+
+                case objectType.Other:
+                    if (Random.Range(0, 2) == 0)
+                    {
+                        GameObject otherModel = otherPrefabs[Random.Range(0, otherPrefabs.Length)];
+                        GameObject otherGo = Instantiate(otherModel, other);
+                        otherGo.transform.localPosition = new Vector2(items[i].xValue, otherModel.transform.position.y);
+                    }
+                    break;
+            }
         }
         currX += 150f;
         return (doorExit.GetComponent<Door>());

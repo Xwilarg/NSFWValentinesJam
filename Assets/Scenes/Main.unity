@@ -769,6 +769,8 @@ MonoBehaviour:
     type: 3}
   prefabDoorLocked: {fileID: 7719953475717255239, guid: 6e5e6005d0d171d41a8f7e7cbd4e0305,
     type: 3}
+  prefabLocker: {fileID: 606432424419635628, guid: 188a83ab83581004683e9b0ff12943bc,
+    type: 3}
   firstDoor: {fileID: 1432326331}
   lastDoor: {fileID: 1184736591}
   soulPrefab: {fileID: 2945447480953121927, guid: 63e79bfc1e4dcb7409d32ff294444682,
@@ -780,6 +782,11 @@ MonoBehaviour:
   secondYearPrefab: {fileID: 1905224368054608771, guid: 85396d0ee3b575c4dbbfd001a494a240,
     type: 3}
   thirdYearPrefab: {fileID: 0}
+  otherPrefabs:
+  - {fileID: 3584888080213233580, guid: 8e79ba678e8281846a550b2b284eb67f, type: 3}
+  - {fileID: 5759431418847142593, guid: 6e300cc978143674395186c1dbc76596, type: 3}
+  - {fileID: 8653574382192982647, guid: 1622aae72daf4914894c4b20bc5867ed, type: 3}
+  - {fileID: 7042291612495352443, guid: bf23ef1f588c3d445b3e969850ce0079, type: 3}
 --- !u!1 &1300306029
 GameObject:
   m_ObjectHideFlags: 0
