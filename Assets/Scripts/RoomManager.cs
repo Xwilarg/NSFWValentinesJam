@@ -26,6 +26,20 @@ public class RoomManager : MonoBehaviour
         }
     }
 
+    public void AddSprite(SpriteRenderer sprite)
+    {
+        spriteRenderers.Add(sprite);
+        if (timer > 0f)
+            sprite.color = new Color(sprite.color.r, sprite.material.color.g, sprite.material.color.b, timer);
+        else if (timer > -1f)
+            sprite.color = new Color(sprite.color.r, sprite.material.color.g, sprite.material.color.b, 0f);
+    }
+
+    public void RemoveSprite(SpriteRenderer sprite)
+    {
+        spriteRenderers.Remove(sprite);
+    }
+
     private void SaveChildren(Transform parent)
     {
         foreach (Transform t in parent)

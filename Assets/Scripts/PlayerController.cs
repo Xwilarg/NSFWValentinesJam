@@ -41,6 +41,16 @@ public class PlayerController : MonoBehaviour
         return (isHidding || isInWardrobe);
     }
 
+    public bool IsHiddenFromOccult()
+    {
+        return (isInWardrobe);
+    }
+
+    public bool IsHiddenOnlyNormal()
+    {
+        return (isHidding);
+    }
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
