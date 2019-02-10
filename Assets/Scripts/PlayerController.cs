@@ -26,9 +26,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Text holyWaterText;
 
+    private int currSprite = 0;
+
+    [SerializeField]
+    private SpriteRenderer[] clothesLife;
+
     void updateLife(float life)
     {
         this.life = life;
+        SpriteRenderer tmpSr = clothesLife[currSprite];
+        tmpSr.color = new Color(tmpSr.color.r, tmpSr.color.g, tmpSr.color.b, life / maxLife);
+        if (life == 0)
+        {
+            currSprite++;
+            life = maxLife;
+        }
         sliderClothes.value = life / maxLife;
     }
 
@@ -69,6 +81,7 @@ public class PlayerController : MonoBehaviour
         currentWardrobe = null;
         holyWaterCount = 0;
         currMentalHealth = maxMentalHealth;
+        currSprite = 0;
     }
 
     private void Update()

@@ -5,9 +5,11 @@ namespace Sound
 {
     public class SoundManager : MonoBehaviour
     {
-        public AudioClip[] audioClips;
         [SerializeField]
+        private AudioClip[] audioClips;
         public Dictionary<string, AudioClip> sounds;
+        [SerializeField]
+        private AudioSource source;
 
         private void Start()
         {
@@ -32,6 +34,12 @@ namespace Sound
             sounds.Add("end3", audioClips[16]);
             sounds.Add("duoCG", audioClips[17]);
             sounds.Add("invoCthulhu", audioClips[18]);
+        }
+
+        void play(string name)
+        {
+            source.clip = sounds[name];
+            source.Play();
         }
     }
 }

@@ -115,7 +115,7 @@ PrefabInstance:
     - target: {fileID: 1021983655, guid: 188a83ab83581004683e9b0ff12943bc, type: 3}
       propertyPath: spriteGhost
       value: 
-      objectReference: {fileID: 21300000, guid: 8e215d749bbc9bf43b1ebee52d0f1523,
+      objectReference: {fileID: 21300000, guid: c9e4d6d53a2198349b9a2b6428323042,
         type: 3}
     - target: {fileID: 1021983655, guid: 188a83ab83581004683e9b0ff12943bc, type: 3}
       propertyPath: isEmpty
