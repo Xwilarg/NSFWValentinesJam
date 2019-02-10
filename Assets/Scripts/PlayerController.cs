@@ -36,12 +36,12 @@ public class PlayerController : MonoBehaviour
         this.life = life;
         SpriteRenderer tmpSr = clothesLife[currSprite];
         tmpSr.color = new Color(tmpSr.color.r, tmpSr.color.g, tmpSr.color.b, life / maxLife);
-        if (life == 0)
+        if (this.life == 0)
         {
             currSprite++;
-            life = maxLife;
+            this.life = maxLife;
         }
-        sliderClothes.value = life / maxLife;
+        sliderClothes.value = this.life / maxLife;
     }
 
     private bool isHidding, isInWardrobe;
@@ -109,6 +109,8 @@ public class PlayerController : MonoBehaviour
                     foreach (Transform t in gameObject.transform)
                         t.gameObject.layer = 8;
                     sr.enabled = true;
+                    foreach (SpriteRenderer tmpSr in clothesLife)
+                        tmpSr.enabled = true;
                     isInWardrobe = false;
                     currentWardrobe.GetComponent<Wardrobe>().Exit();
                 }
@@ -120,6 +122,8 @@ public class PlayerController : MonoBehaviour
                     rb.velocity = Vector2.zero;
                     isInWardrobe = true;
                     sr.enabled = false;
+                    foreach (SpriteRenderer tmpSr in clothesLife)
+                        tmpSr.enabled = false;
                     currentWardrobe.GetComponent<Wardrobe>().Enter(ref holyWaterCount);
                     holyWaterText.text = holyWaterCount.ToString();
                 }
