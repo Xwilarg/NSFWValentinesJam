@@ -152,11 +152,6 @@ public class ProceduralGeneration : MonoBehaviour
                 case objectType.Locker:
                     GameObject lockerGo = Instantiate(prefabLocker, other);
                     lockerGo.transform.localPosition = new Vector2(items[i].xValue, yPos);
-                    if (Random.Range(0, 3) == 0)
-                    {
-                        lockerGo.GetComponent<Wardrobe>().AddHolyWater();
-                        availableWater++;
-                    }
                     break;
 
                 case objectType.Other:

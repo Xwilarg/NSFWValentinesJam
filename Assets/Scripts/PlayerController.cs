@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using Sound;
+using UnityEngine.SceneManagement;
 using Sound.play;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -51,6 +51,8 @@ public class PlayerController : MonoBehaviour
                 soundManager.normalAudio.volume = 0f;
                 soundManager.dangerAudio.volume = 1f;
             }
+            else if (currSprite == 5)
+                GameOver(GameOverManager.EndType.DeathLight);
         }
         sliderClothes.value = this.life / maxLife;
     }
@@ -213,7 +215,15 @@ public class PlayerController : MonoBehaviour
         source.Play();
         Destroy(ghostSound, source.clip.length);
         currMentalHealth--;
+        if (currMentalHealth == 0)
+            GameOver(GameOverManager.EndType.DeathSouls);
         sliderMentalHealth.value = (float)currMentalHealth / maxMentalHealth;
-        // TODO: GameOver
+    }
+
+    private void GameOver(GameOverManager.EndType type)
+    {
+        GameObject go = new GameObject("GameOverManager", typeof(GameOverManager));
+        go.GetComponent<GameOverManager>().type = type;
+        SceneManager.LoadScene("Ending");
     }
 }
