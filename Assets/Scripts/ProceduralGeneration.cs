@@ -9,7 +9,7 @@ public class ProceduralGeneration : MonoBehaviour
     private GameObject prefabDoor, prefabDoorLocked;
 
     [SerializeField]
-    private GameObject prefabLocker;
+    private GameObject prefabWardrobe, prefabLocker;
 
     [SerializeField]
     private Door firstDoor, lastDoor;
@@ -201,7 +201,7 @@ public class ProceduralGeneration : MonoBehaviour
             switch (items[y].type)
             {
                 case objectType.Locker:
-                    GameObject lockerGo = Instantiate(prefabLocker, other);
+                    GameObject lockerGo = Instantiate(prefabWardrobe, other);
                     lockerGo.transform.localPosition = new Vector2(items[y].xValue, yPos);
                     if (Random.Range(0, 3) == 0)
                     {

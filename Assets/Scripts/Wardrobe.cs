@@ -3,6 +3,7 @@
 [RequireComponent(typeof(SpriteRenderer))]
 public class Wardrobe : MonoBehaviour
 {
+    [SerializeField]
     private bool isEmpty;
 
     private SpriteRenderer sr;
@@ -20,7 +21,6 @@ public class Wardrobe : MonoBehaviour
 
     private void Start()
     {
-        isEmpty = false;
         sr = GetComponent<SpriteRenderer>();
     }
 

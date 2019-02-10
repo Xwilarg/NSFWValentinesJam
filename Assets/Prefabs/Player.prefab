@@ -156,7 +156,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 55ccece82ff3b834ea80ccfb16bbf94a, type: 3}
-  m_Color: {r: 0.6179246, g: 1, b: 0.98942703, a: 1}
+  m_Color: {r: 0.6179246, g: 1, b: 0.98942703, a: 0.53333336}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -181,6 +181,9 @@ MonoBehaviour:
   hiddenSprite: {fileID: 21300000, guid: 194fa28b27e26b14990c3f6edf058b45, type: 3}
   baseSprite: {fileID: 21300000, guid: 55ccece82ff3b834ea80ccfb16bbf94a, type: 3}
   maxLife: 4
+  sliderClothes: {fileID: 0}
+  sliderMentalHealth: {fileID: 0}
+  holyWaterText: {fileID: 0}
 --- !u!50 &2833799529197972022
 Rigidbody2D:
   serializedVersion: 4
@@ -219,7 +222,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1.8}
+    oldSize: {x: 1.23, y: 2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
