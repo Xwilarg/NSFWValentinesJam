@@ -14,9 +14,6 @@ public class AI : MonoBehaviour
     private bool goLeft;
     public bool isMoving { set; private get; }
 
-    [SerializeField]
-    private LightCollision lightCollision;
-
     private void Start()
     {
         sound.loopPlay("footstep");

@@ -12,8 +12,6 @@ public class OccultLv1 : MonoBehaviour
     private bool isOnDoor = false;
     private PlayerController pc = null;
     [SerializeField]
-    private LightCollision lightCollision;
-    [SerializeField]
     private GameObject toSpawn;
     private bool playerFound;
 
