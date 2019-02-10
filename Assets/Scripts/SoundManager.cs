@@ -33,6 +33,7 @@ namespace Sound
             sounds.Add("end3", audioClips[16]);
             sounds.Add("duoCG", audioClips[17]);
             sounds.Add("invoCthulhu", audioClips[18]);
+            sounds.Add("dedSoul", audioClips[19]);
         }
     }
 }
