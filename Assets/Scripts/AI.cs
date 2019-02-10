@@ -29,19 +29,6 @@ public class AI : MonoBehaviour
 
     private void Update()
     {
-        foreach (Collider2D collision in lightCollision.getCollidings()) {
-            try
-            {
-                if (collision.CompareTag("Player"))
-                {
-                    PlayerController pc = collision.GetComponent<PlayerController>();
-                    if (!pc.IsHidden())
-                        pc.TakeDamage();
-                }
-            }
-            catch (System.Exception)
-            { }
-        }
         if (!isMoving && !pc.IsHidden())
         {
             playloop = false;
