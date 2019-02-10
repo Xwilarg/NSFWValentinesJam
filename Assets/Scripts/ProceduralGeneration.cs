@@ -182,7 +182,7 @@ public class ProceduralGeneration : MonoBehaviour
         Door me = doorEntrance.GetComponent<Door>();
         me.SetDoor(lastDoor);
         lastDoor.SetDoor(me);
-        int randomInt = Random.Range(-2, 2);
+        int randomInt = Random.Range(-1, 2);
         if (randomInt < 0)
             randomInt = 0;
         if (randomInt == 1)

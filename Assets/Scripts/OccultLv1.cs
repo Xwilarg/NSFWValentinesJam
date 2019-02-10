@@ -49,7 +49,7 @@ public class OccultLv1 : MonoBehaviour
             if (hit.distance > 0f)
             {
                 goLeft = !goLeft;
-                transform.localScale *= -1;
+                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, 1f);
             }
             foreach (Collider2D collision in lightCollision.getCollidings())
             {
@@ -60,7 +60,7 @@ public class OccultLv1 : MonoBehaviour
                     if (willGoLeft != goLeft)
                     {
                         goLeft = !goLeft;
-                        transform.localScale *= -1;
+                        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, 1f);
                     }
                     rb.velocity = new Vector2((willGoLeft ? -1 : 1) * runSpeed * Time.deltaTime, rb.velocity.y);
                 }
