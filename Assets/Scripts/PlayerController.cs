@@ -35,6 +35,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private SpriteRenderer[] clothesLife;
 
+    [SerializeField]
+    private SpriteRenderer[] firstsClothes;
+
     private AmbiantSoundManager soundManager;
 
     void updateLife(float life)
@@ -42,6 +45,11 @@ public class PlayerController : MonoBehaviour
         this.life = life;
         SpriteRenderer tmpSr = clothesLife[currSprite];
         tmpSr.color = new Color(tmpSr.color.r, tmpSr.color.g, tmpSr.color.b, life / maxLife);
+        if (currSprite == 0)
+        {
+            foreach (SpriteRenderer tsr in firstsClothes)
+                tsr.color = new Color(tsr.color.r, tsr.color.g, tsr.color.b, life / maxLife);
+        }
         if (this.life == 0)
         {
             currSprite++;

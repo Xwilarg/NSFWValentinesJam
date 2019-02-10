@@ -9136,6 +9136,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2833799529197972021, guid: 64b7f55185296584188e0dabac171930,
         type: 3}
+      propertyPath: firstsClothes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2833799529197972021, guid: 64b7f55185296584188e0dabac171930,
+        type: 3}
       propertyPath: slider
       value: 
       objectReference: {fileID: 2086420645}
@@ -9184,6 +9189,11 @@ PrefabInstance:
       propertyPath: clothesLife.Array.data[4]
       value: 
       objectReference: {fileID: 333604146}
+    - target: {fileID: 2833799529197972021, guid: 64b7f55185296584188e0dabac171930,
+        type: 3}
+      propertyPath: firstsClothes.Array.data[0]
+      value: 
+      objectReference: {fileID: 392049007}
     - target: {fileID: 2833799528450893344, guid: 64b7f55185296584188e0dabac171930,
         type: 3}
       propertyPath: m_LocalScale.y
