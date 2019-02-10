@@ -9194,6 +9194,11 @@ PrefabInstance:
       propertyPath: firstsClothes.Array.data[0]
       value: 
       objectReference: {fileID: 392049007}
+    - target: {fileID: 2833799529197972021, guid: 64b7f55185296584188e0dabac171930,
+        type: 3}
+      propertyPath: firstArm
+      value: 
+      objectReference: {fileID: 27485780}
     - target: {fileID: 2833799528450893344, guid: 64b7f55185296584188e0dabac171930,
         type: 3}
       propertyPath: m_LocalScale.y

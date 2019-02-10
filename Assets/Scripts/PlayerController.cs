@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private int currMentalHealth;
 
     [SerializeField]
-    private Sprite hiddenSprite, baseSprite;
+    private Sprite baseSprite;
 
     [SerializeField]
     private int maxLife = 1;
@@ -36,7 +36,9 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer[] clothesLife;
 
     [SerializeField]
-    private SpriteRenderer[] firstsClothes;
+    private SpriteRenderer[] firstsClothes, secondsClothes;
+    [SerializeField]
+    private SpriteRenderer firstArm, secondArm;
 
     private AmbiantSoundManager soundManager;
 
@@ -168,7 +170,12 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetButtonDown("Hide"))
         {
-            sr.sprite = hiddenSprite;
+            foreach (SpriteRenderer s in firstsClothes)
+                s.enabled = false;
+            foreach (SpriteRenderer s in secondsClothes)
+                s.enabled = true;
+            firstArm.enabled = false;
+            secondArm.enabled = true;
             rb.velocity = Vector2.zero;
             isHidding = true;
             transform.parent.GetComponent<RoomManager>().DisableAll();
@@ -177,6 +184,12 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetButtonUp("Hide"))
         {
+            foreach (SpriteRenderer s in firstsClothes)
+                s.enabled = true;
+            foreach (SpriteRenderer s in secondsClothes)
+                s.enabled = false;
+            firstArm.enabled = true;
+            secondArm.enabled = false;
             sound.loopStop();
             sound.source.volume = 0;
             sr.sprite = baseSprite;
