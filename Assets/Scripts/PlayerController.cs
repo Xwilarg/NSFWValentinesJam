@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private SpriteRenderer[] clothesLife;
 
+    private AmbiantSoundManager soundManager;
+
     void updateLife(float life)
     {
         this.life = life;
@@ -40,6 +42,11 @@ public class PlayerController : MonoBehaviour
         {
             currSprite++;
             this.life = maxLife;
+            if (currSprite == 3)
+            {
+                soundManager.normalAudio.volume = 0f;
+                soundManager.dangerAudio.volume = 1f;
+            }
         }
         sliderClothes.value = this.life / maxLife;
     }
@@ -72,6 +79,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<AmbiantSoundManager>();
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         updateLife(maxLife);

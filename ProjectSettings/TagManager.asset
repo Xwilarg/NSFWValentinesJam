@@ -10,6 +10,7 @@ TagManager:
   - Sound
   - Occult
   - LanguageManager
+  - SoundManager
   layers:
   - Default
   - TransparentFX
