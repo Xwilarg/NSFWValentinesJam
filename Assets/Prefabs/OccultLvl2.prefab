@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 6751040025786850588}
   - component: {fileID: 8473520964190634442}
   - component: {fileID: 2515362170063780574}
-  - component: {fileID: 523625870705531339}
+  - component: {fileID: 9013021989646347688}
   m_Layer: 0
   m_Name: Light
   m_TagString: Occult
@@ -239,7 +239,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &523625870705531339
+--- !u!114 &9013021989646347688
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2889781808475557988}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35fe9ba42a9af1647b0f134fae734466, type: 3}
+  m_Script: {fileID: 11500000, guid: 93190ac24c443484597e3c92ea9bd193, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7772482519877979949

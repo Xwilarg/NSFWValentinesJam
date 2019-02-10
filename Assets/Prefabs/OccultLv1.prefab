@@ -345,7 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4037b37a10e3b94e8919c367b272620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toSpawn: {fileID: 7140659749509302207, guid: 661fd7d751115e04baa7387cc7c5d735, type: 3}
+  toSpawn: {fileID: 1905224368054608771, guid: 85396d0ee3b575c4dbbfd001a494a240, type: 3}
 --- !u!82 &370819487917092384
 AudioSource:
   m_ObjectHideFlags: 0

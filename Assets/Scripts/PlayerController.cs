@@ -82,7 +82,12 @@ public class PlayerController : MonoBehaviour
 
     public bool IsHidden()
     {
-        return (isHidding || isInWardrobe);
+        return (isHidding);
+    }
+
+    public bool IsInWardrobe()
+    {
+        return (isInWardrobe);
     }
 
     public bool IsHiddenFromOccult()

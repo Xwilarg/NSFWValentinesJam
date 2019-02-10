@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-public class ProfessorLight : MonoBehaviour
+public class OccultLv2Vision : MonoBehaviour
 {
     private PlayerController pc;
 
@@ -13,7 +13,7 @@ public class ProfessorLight : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             PlayerController pc = collision.GetComponent<PlayerController>();
-            if (!pc.IsHidden() && !pc.IsInWardrobe())
+            if (!pc.IsInWardrobe())
                 pc.TakeDamage();
         }
     }
