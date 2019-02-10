@@ -12,8 +12,6 @@ public class OccultLv1 : MonoBehaviour
     private bool isOnDoor = false;
     private PlayerController pc = null;
     [SerializeField]
-    private LightCollision lightCollision;
-    [SerializeField]
     private GameObject toSpawn;
     private bool playerFound;
 
@@ -40,33 +38,33 @@ public class OccultLv1 : MonoBehaviour
         }
     }
 
-    private void Update()
+    public void FoundPlayer()
     {
-        if (!playerFound)
+        if (!pc.IsHiddenFromOccult())
         {
-            rb.velocity = new Vector2(((goLeft) ? -1 : 1) * speed * Time.deltaTime, rb.velocity.y);
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(((goLeft) ? -1 : 1), 0f), maxDist, 1 << 10);
-            if (hit.distance > 0f)
+            playerFound = true;
+            bool willGoLeft = this.transform.position.x < pc.transform.position.x;
+            if (willGoLeft != goLeft)
             {
                 goLeft = !goLeft;
                 transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, 1f);
             }
-            foreach (Collider2D collision in lightCollision.getCollidings())
+            rb.velocity = new Vector2((willGoLeft ? -1 : 1) * runSpeed * Time.deltaTime, rb.velocity.y);
+        }
+    }
+
+    private void Update()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(((goLeft) ? -1 : 1), 0f), maxDist, 1 << 10);
+        if (!playerFound)
+        {
+            rb.velocity = new Vector2(((goLeft) ? -1 : 1) * speed * Time.deltaTime, rb.velocity.y);
+            if (hit.distance > 0.0001f)
             {
-                if (collision.CompareTag("Player") && !pc.IsHiddenFromOccult())
-                {
-                    playerFound = true;
-                    bool willGoLeft = this.transform.position.x < pc.transform.position.x;
-                    if (willGoLeft != goLeft)
-                    {
-                        goLeft = !goLeft;
-                        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, 1f);
-                    }
-                    rb.velocity = new Vector2((willGoLeft ? -1 : 1) * runSpeed * Time.deltaTime, rb.velocity.y);
-                }
+                goLeft = !goLeft;
+                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, 1f);
             }
         } else {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(((goLeft) ? -1 : 1), 0f), maxDist, 1 << 10);
             if (isOnDoor || hit.distance > 0.0001f)
             {
                 GameObject go = Instantiate(toSpawn, gameObject.transform.position, gameObject.transform.rotation);

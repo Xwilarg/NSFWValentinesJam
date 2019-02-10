@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private int currMentalHealth;
 
     [SerializeField]
-    private Sprite hiddenSprite, baseSprite;
+    private Sprite baseSprite, hiddenSprite;
 
     [SerializeField]
     private int maxLife = 1;
@@ -35,6 +35,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private SpriteRenderer[] clothesLife;
 
+    [SerializeField]
+    private SpriteRenderer[] firstsClothes, secondsClothes;
+    [SerializeField]
+    private SpriteRenderer firstArm, secondArm;
+
     private AmbiantSoundManager soundManager;
 
     void updateLife(float life)
@@ -42,6 +47,11 @@ public class PlayerController : MonoBehaviour
         this.life = life;
         SpriteRenderer tmpSr = clothesLife[currSprite];
         tmpSr.color = new Color(tmpSr.color.r, tmpSr.color.g, tmpSr.color.b, life / maxLife);
+        if (currSprite == 0)
+        {
+            foreach (SpriteRenderer tsr in firstsClothes)
+                tsr.color = new Color(tsr.color.r, tsr.color.g, tsr.color.b, life / maxLife);
+        }
         if (this.life == 0)
         {
             sound.source.volume = 1;
@@ -162,6 +172,12 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetButtonDown("Hide"))
         {
+            foreach (SpriteRenderer s in firstsClothes)
+                s.enabled = false;
+            foreach (SpriteRenderer s in secondsClothes)
+                s.enabled = true;
+            firstArm.enabled = false;
+            secondArm.enabled = true;
             sr.sprite = hiddenSprite;
             rb.velocity = Vector2.zero;
             isHidding = true;
@@ -171,6 +187,13 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetButtonUp("Hide"))
         {
+            foreach (SpriteRenderer s in firstsClothes)
+                s.enabled = true;
+            foreach (SpriteRenderer s in secondsClothes)
+                s.enabled = false;
+            firstArm.enabled = true;
+            secondArm.enabled = false;
+            sr.sprite = baseSprite;
             sound.loopStop();
             sound.source.volume = 0;
             sr.sprite = baseSprite;
