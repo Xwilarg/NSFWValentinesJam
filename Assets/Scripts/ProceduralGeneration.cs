@@ -18,7 +18,7 @@ public class ProceduralGeneration : MonoBehaviour
     private GameObject soulPrefab, teacherPrefab, firstYearPrefab, secondYearPrefab, thirdYearPrefab;
 
     [SerializeField]
-    private GameObject[] otherPrefabs;
+    private GameObject[] otherPrefabs, otherPrefabsRoom;
 
     private float currX;
 
@@ -179,7 +179,7 @@ public class ProceduralGeneration : MonoBehaviour
                 case objectType.Other:
                     if (Random.Range(0, 2) == 0)
                     {
-                        GameObject otherModel = otherPrefabs[Random.Range(0, otherPrefabs.Length)];
+                        GameObject otherModel = otherPrefabsRoom[Random.Range(0, otherPrefabsRoom.Length)];
                         GameObject otherGo = Instantiate(otherModel, other);
                         otherGo.transform.localPosition = new Vector2(items[y].xValue, otherModel.transform.position.y);
                     }
