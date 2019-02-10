@@ -66,7 +66,7 @@ public class ProceduralGeneration : MonoBehaviour
             new Item(7f, objectType.Other),
             new Item(12f, objectType.Other),
             new Item(17f, objectType.Other),
-            new Item(22f, objectType.Other),
+            new Item(22f, objectType.Other)
         };
         GameObject go = Instantiate(prefabCorridor, new Vector2(currX, 0f), Quaternion.identity);
         go.transform.parent = transform;
@@ -148,6 +148,12 @@ public class ProceduralGeneration : MonoBehaviour
 
     private void GenerateRoom(Door lastDoor, float i)
     {
+
+        Item[] items = new Item[]
+        {
+            new Item(16f, objectType.Other),
+            new Item(24f, objectType.Other)
+        };
         GameObject go = Instantiate(prefabRoom, new Vector2(currX + i * 10f, 100f + i * 100f), Quaternion.identity);
         go.transform.parent = transform;
         Transform other = go.transform.GetChild(2);
@@ -156,5 +162,29 @@ public class ProceduralGeneration : MonoBehaviour
         Door me = doorEntrance.GetComponent<Door>();
         me.SetDoor(lastDoor);
         lastDoor.SetDoor(me);
+        int randomInt = Random.Range(-2, 2);
+        if (randomInt < 0)
+            randomInt = 0;
+        if (randomInt == 1)
+            items[Random.Range(0, items.Length)].type = objectType.Locker;
+        for (int y = 0; y < items.Length; y++)
+        {
+            switch (items[y].type)
+            {
+                case objectType.Locker:
+                    GameObject lockerGo = Instantiate(prefabLocker, other);
+                    lockerGo.transform.localPosition = new Vector2(items[y].xValue, yPos);
+                    break;
+
+                case objectType.Other:
+                    if (Random.Range(0, 2) == 0)
+                    {
+                        GameObject otherModel = otherPrefabs[Random.Range(0, otherPrefabs.Length)];
+                        GameObject otherGo = Instantiate(otherModel, other);
+                        otherGo.transform.localPosition = new Vector2(items[y].xValue, otherModel.transform.position.y);
+                    }
+                    break;
+            }
+        }
     }
 }
