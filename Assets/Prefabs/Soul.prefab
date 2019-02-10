@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2945447480953121926}
   - component: {fileID: 2945447480953121923}
   - component: {fileID: 1117707812}
+  - component: {fileID: 7648082876622474800}
   m_Layer: 11
   m_Name: Soul
   m_TagString: AI
@@ -141,3 +142,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df07ae9ff674c464e98eb8de2bb78c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &7648082876622474800
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2945447480953121927}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 321fbd189950f374aab846f59c3691f9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
