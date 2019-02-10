@@ -58,7 +58,7 @@ public class AI : MonoBehaviour
         if (hit.distance > 0f)
         {
             goLeft = !goLeft;
-            transform.localScale *= -1;
+            transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, 1f);
         }
     }
 }
