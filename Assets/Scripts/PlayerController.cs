@@ -136,7 +136,12 @@ public class PlayerController : MonoBehaviour
                     sr.enabled = false;
                     foreach (SpriteRenderer tmpSr in clothesLife)
                         tmpSr.enabled = false;
-                    currentWardrobe.GetComponent<Wardrobe>().Enter(ref holyWaterCount);
+                    bool wasEmpty = currentWardrobe.GetComponent<Wardrobe>().Enter(ref holyWaterCount);
+                    if (!wasEmpty)
+                        life += Random.Range(1f, 2f);
+                    if (life > maxLife)
+                        life = maxLife;
+                    sliderClothes.value = life / maxLife;
                     holyWaterText.text = holyWaterCount.ToString();
                 }
             }

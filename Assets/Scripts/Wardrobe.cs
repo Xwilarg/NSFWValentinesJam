@@ -24,7 +24,7 @@ public class Wardrobe : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
     }
 
-    public void Enter(ref int holyWaterCount)
+    public bool Enter(ref int holyWaterCount)
     {
         if (containHolyWater)
         {
@@ -32,7 +32,9 @@ public class Wardrobe : MonoBehaviour
             containHolyWater = false;
         }
         sr.sprite = spriteGhost;
+        bool wasEmpty = isEmpty;
         isEmpty = true;
+        return (wasEmpty);
     }
 
     public void Exit()
