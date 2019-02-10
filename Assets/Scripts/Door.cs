@@ -34,6 +34,7 @@ public class Door : MonoBehaviour
                 {
                     holyWaterCount--;
                     sr.sprite = unlockedSprite;
+                    isLocked = false;
                 }
                 return (door);
             }
