@@ -34,6 +34,11 @@ namespace Sound
             sounds.Add("duoCG", audioClips[17]);
             sounds.Add("invoCthulhu", audioClips[18]);
             sounds.Add("dedSoul", audioClips[19]);
+            sounds.Add("cum1", audioClips[20]);
+            sounds.Add("cum2", audioClips[21]);
+            sounds.Add("cum3", audioClips[22]);
+            sounds.Add("cum4", audioClips[23]);
+            sounds.Add("cum5", audioClips[24]);
         }
     }
 }

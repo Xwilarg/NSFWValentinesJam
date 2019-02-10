@@ -21,7 +21,9 @@ namespace Sound
                 loop = false;
                 if (source == null)
                     source = gameObject.GetComponent<AudioSource>();
-                sm = GameObject.FindGameObjectWithTag("Sound").GetComponent<SoundManager>();
+                if (source == null)
+                    source = gameObject.AddComponent<AudioSource>();
+               sm = GameObject.FindGameObjectWithTag("Sound").GetComponent<SoundManager>();
             }
 
             public SoundManager GetSoundManager()
@@ -42,6 +44,11 @@ namespace Sound
                             source.clip = sm.sounds[isPlayingName];
                         }
                 }
+            }
+
+            public void play(string[] names)
+            {
+                play(names[UnityEngine.Random.Range(0, names.Length)]);
             }
 
             public void loopStop()

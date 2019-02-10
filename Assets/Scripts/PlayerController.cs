@@ -44,12 +44,14 @@ public class PlayerController : MonoBehaviour
         tmpSr.color = new Color(tmpSr.color.r, tmpSr.color.g, tmpSr.color.b, life / maxLife);
         if (this.life == 0)
         {
+            sound.source.volume = 1;
+            sound.play(new string[] { "cum1", "cum2", "cum3", "cum4", "cum5"});
             currSprite++;
             this.life = maxLife;
             if (currSprite == 3)
             {
                 soundManager.normalAudio.volume = 0f;
-                soundManager.dangerAudio.volume = 1f;
+                soundManager.dangerAudio.volume = 0.6f;
             }
             else if (currSprite == 5)
                 GameOver(GameOverManager.EndType.DeathLight);
@@ -63,7 +65,7 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage()
     {
-        float tmp = life - 0.05f;
+        float tmp = life - (4f * Time.deltaTime);
         tmp = (tmp >= 0.0f) ? tmp : 0.0f;
         updateLife(tmp);
     }
