@@ -12,7 +12,7 @@ public class DoorLightening : MonoBehaviour
 
     private void Start()
     {
-        int tmp = 1;
+        int? tmp = null;
         otherDoor = transform.parent.GetComponent<Door>().GetNextDoor(ref tmp).GetComponentInChildren<DoorLightening>();
     }
 

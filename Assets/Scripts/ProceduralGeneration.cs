@@ -20,6 +20,8 @@ public class ProceduralGeneration : MonoBehaviour
     [SerializeField]
     private GameObject[] otherPrefabs, otherPrefabsRoom;
 
+    private int availableWater;
+
     private float currX;
 
     const float yPos = -1.5f;
@@ -122,7 +124,15 @@ public class ProceduralGeneration : MonoBehaviour
             switch (items[i].type)
             {
                 case objectType.Door:
-                    GameObject doorGo = Instantiate(prefabDoor, other);
+                    GameObject doorGo;
+                    if (Random.Range(0, 4) == 0)
+                    {
+                        doorGo = Instantiate(prefabDoorLocked, other);
+                        availableWater--;
+                        Debug.Log("Locked!");
+                    }
+                    else
+                        doorGo = Instantiate(prefabDoor, other);
                     doorGo.transform.localPosition = new Vector2(items[i].xValue, yPos);
                     GenerateRoom(doorGo.GetComponent<Door>(), i);
                     break;
@@ -130,6 +140,11 @@ public class ProceduralGeneration : MonoBehaviour
                 case objectType.Locker:
                     GameObject lockerGo = Instantiate(prefabLocker, other);
                     lockerGo.transform.localPosition = new Vector2(items[i].xValue, yPos);
+                    if (Random.Range(0, 3) == 0)
+                    {
+                        lockerGo.GetComponent<Wardrobe>().AddHolyWater();
+                        availableWater++;
+                    }
                     break;
 
                 case objectType.Other:
@@ -174,6 +189,11 @@ public class ProceduralGeneration : MonoBehaviour
                 case objectType.Locker:
                     GameObject lockerGo = Instantiate(prefabLocker, other);
                     lockerGo.transform.localPosition = new Vector2(items[y].xValue, yPos);
+                    if (Random.Range(0, 3) == 0)
+                    {
+                        lockerGo.GetComponent<Wardrobe>().AddHolyWater();
+                        availableWater++;
+                    }
                     break;
 
                 case objectType.Other:

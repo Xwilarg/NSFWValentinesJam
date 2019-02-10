@@ -13,6 +13,11 @@ public class Wardrobe : MonoBehaviour
     [SerializeField]
     private bool containHolyWater;
 
+    public void AddHolyWater()
+    {
+        containHolyWater = true;
+    }
+
     private void Start()
     {
         isEmpty = false;

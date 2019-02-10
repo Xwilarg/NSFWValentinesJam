@@ -354,3 +354,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   door: {fileID: 0}
   isLocked: 0
+  unlockedSprite: {fileID: 21300000, guid: c4459fc956d1e464eb51f916cb384858, type: 3}

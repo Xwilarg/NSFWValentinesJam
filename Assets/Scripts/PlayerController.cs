@@ -77,7 +77,9 @@ public class PlayerController : MonoBehaviour
         {
             if (!isHidding && currentDoor != null)
             {
-                Door d = currentDoor.GetComponent<Door>().GetNextDoor(ref holyWaterCount);
+                int? tmp = holyWaterCount;
+                Door d = currentDoor.GetComponent<Door>().GetNextDoor(ref tmp);
+                holyWaterCount = tmp.Value;
                 if (d != null)
                 {
                     transform.position = d.transform.position;
