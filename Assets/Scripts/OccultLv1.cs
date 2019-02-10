@@ -40,6 +40,21 @@ public class OccultLv1 : MonoBehaviour
         }
     }
 
+    public void FoundPlayer()
+    {
+        if (!pc.IsHiddenFromOccult())
+        {
+            playerFound = true;
+            bool willGoLeft = this.transform.position.x < pc.transform.position.x;
+            if (willGoLeft != goLeft)
+            {
+                goLeft = !goLeft;
+                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, 1f);
+            }
+            rb.velocity = new Vector2((willGoLeft ? -1 : 1) * runSpeed * Time.deltaTime, rb.velocity.y);
+        }
+    }
+
     private void Update()
     {
         if (!playerFound)
@@ -50,20 +65,6 @@ public class OccultLv1 : MonoBehaviour
             {
                 goLeft = !goLeft;
                 transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, 1f);
-            }
-            foreach (Collider2D collision in lightCollision.getCollidings())
-            {
-                if (collision.CompareTag("Player") && !pc.IsHiddenFromOccult())
-                {
-                    playerFound = true;
-                    bool willGoLeft = this.transform.position.x < pc.transform.position.x;
-                    if (willGoLeft != goLeft)
-                    {
-                        goLeft = !goLeft;
-                        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, 1f);
-                    }
-                    rb.velocity = new Vector2((willGoLeft ? -1 : 1) * runSpeed * Time.deltaTime, rb.velocity.y);
-                }
             }
         } else {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(((goLeft) ? -1 : 1), 0f), maxDist, 1 << 10);
