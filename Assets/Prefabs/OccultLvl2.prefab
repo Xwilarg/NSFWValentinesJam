@@ -142,7 +142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b5e5f512a0b65640952f23aa910d96b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightCollision: {fileID: 4751058182293850392}
 --- !u!1 &2889781808475557988
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,7 +152,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6751040025786850588}
   - component: {fileID: 8473520964190634442}
-  - component: {fileID: 4751058182293850392}
   - component: {fileID: 2515362170063780574}
   - component: {fileID: 523625870705531339}
   m_Layer: 0
@@ -225,18 +223,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4751058182293850392
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2889781808475557988}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ea93d50d7c17ec49bad1de1cc3e5b03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &2515362170063780574
 CircleCollider2D:
   m_ObjectHideFlags: 0
