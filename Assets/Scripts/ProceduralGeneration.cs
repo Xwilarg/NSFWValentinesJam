@@ -75,11 +75,13 @@ public class ProceduralGeneration : MonoBehaviour
         Transform other = go.transform.GetChild(2);
         GameObject doorEntrance = Instantiate(prefabDoor, other);
         doorEntrance.transform.localPosition = new Vector2(xPosStart, yPos);
+        doorEntrance.name = "FinalDoor";
         Door me = doorEntrance.GetComponent<Door>();
         me.SetDoor(lastDoor);
         lastDoor.SetDoor(me);
         GameObject doorExit = Instantiate(prefabDoor, other);
         doorExit.transform.localPosition = new Vector2(xPosEnd, yPos);
+        doorExit.name = "FinalDoor";
         int randomInt = Random.Range(-1, 5);
         if (randomInt < 0)
             randomInt = 0;
@@ -92,7 +94,11 @@ public class ProceduralGeneration : MonoBehaviour
         randomInt = Random.Range(0, 3);
         for (int i = 0; i < randomInt; i++)
         {
-            GameObject soulGo = Instantiate(teacherPrefab, other);
+            GameObject soulGo;
+            if (Random.Range(0, 3) == 0)
+                soulGo = Instantiate(firstYearPrefab, other);
+            else
+                soulGo = Instantiate(teacherPrefab, other);
             soulGo.transform.localPosition = new Vector2(Random.Range(-7f, 24f), yPos);
         }
         randomInt = Random.Range(-1, 3);
@@ -129,7 +135,6 @@ public class ProceduralGeneration : MonoBehaviour
                     {
                         doorGo = Instantiate(prefabDoorLocked, other);
                         availableWater--;
-                        Debug.Log("Locked!");
                     }
                     else
                         doorGo = Instantiate(prefabDoor, other);
@@ -172,7 +177,7 @@ public class ProceduralGeneration : MonoBehaviour
         GameObject go = Instantiate(prefabRoom, new Vector2(currX + i * 10f, 100f + i * 100f), Quaternion.identity);
         go.transform.parent = transform;
         Transform other = go.transform.GetChild(2);
-        GameObject doorEntrance = Instantiate(prefabDoor, go.transform);
+        GameObject doorEntrance = Instantiate(prefabDoor, other);
         doorEntrance.transform.localPosition = new Vector2(20f, yPos);
         Door me = doorEntrance.GetComponent<Door>();
         me.SetDoor(lastDoor);
@@ -182,6 +187,15 @@ public class ProceduralGeneration : MonoBehaviour
             randomInt = 0;
         if (randomInt == 1)
             items[Random.Range(0, items.Length)].type = objectType.Locker;
+        randomInt = Random.Range(-1, 3);
+        if (randomInt < 0)
+            randomInt = 0;
+        for (int y = 0; y < randomInt; y++)
+        {
+            GameObject soulGo = Instantiate(soulPrefab, other);
+            soulGo.transform.localPosition = new Vector2(20f, yPos);
+            soulGo.name = "Soul";
+        }
         for (int y = 0; y < items.Length; y++)
         {
             switch (items[y].type)

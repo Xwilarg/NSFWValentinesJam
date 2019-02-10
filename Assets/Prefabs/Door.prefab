@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8140793436622837384}
   - component: {fileID: 6433659439748026082}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: YellowLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5355490354514910837}
   - component: {fileID: 3171336836117645211}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: PurpleLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 4643621093567228622}
   - component: {fileID: 987897234006088467}
   - component: {fileID: 3180702478466223989}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: AIDetection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 6220969202768787643}
   - component: {fileID: 6220969202768787640}
   - component: {fileID: 6220969202768787641}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Door
   m_TagString: Door
   m_Icon: {fileID: 0}
