@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using Sound;
+using Sound.play;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(SpriteRenderer))]
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField]
+    private playSound sound;
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     private const float speed = 600f;
@@ -145,9 +149,11 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector2.zero;
             isHidding = true;
             transform.parent.GetComponent<RoomManager>().DisableAll();
+            sound.loopPlay("breathing");
         }
         else if (Input.GetButtonUp("Hide"))
         {
+            sound.loopStop();
             sr.sprite = baseSprite;
             isHidding = false;
             transform.parent.GetComponent<RoomManager>().EnableAll();
@@ -187,6 +193,12 @@ public class PlayerController : MonoBehaviour
 
     private void LooseMentalHealth()
     {
+        var ghostSound = new GameObject("SoulSound", typeof(AudioSource));
+        var source = ghostSound.GetComponent<AudioSource>();
+
+        source.clip = sound.GetSoundManager().sounds["dmgSoul"];
+        source.Play();
+        Destroy(ghostSound, source.clip.length);
         currMentalHealth--;
         sliderMentalHealth.value = (float)currMentalHealth / maxMentalHealth;
         // TODO: GameOver
