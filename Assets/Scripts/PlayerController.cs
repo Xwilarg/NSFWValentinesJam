@@ -164,11 +164,13 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector2.zero;
             isHidding = true;
             transform.parent.GetComponent<RoomManager>().DisableAll();
+            sound.source.volume = 1;
             sound.loopPlay("breathing");
         }
         else if (Input.GetButtonUp("Hide"))
         {
             sound.loopStop();
+            sound.source.volume = 0;
             sr.sprite = baseSprite;
             isHidding = false;
             transform.parent.GetComponent<RoomManager>().EnableAll();

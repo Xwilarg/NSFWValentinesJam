@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Sound.play;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class Door : MonoBehaviour
@@ -6,6 +7,8 @@ public class Door : MonoBehaviour
     [SerializeField]
     private Door door;
 
+    [SerializeField]
+    private playSound sound;
     [SerializeField]
     private bool isLocked;
 
@@ -32,6 +35,7 @@ public class Door : MonoBehaviour
             {
                 if (holyWaterCount != null)
                 {
+                    sound.play("lockedDoorOpen");
                     holyWaterCount--;
                     sr.sprite = unlockedSprite;
                     isLocked = false;

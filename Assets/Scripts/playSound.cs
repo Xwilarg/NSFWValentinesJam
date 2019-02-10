@@ -18,7 +18,9 @@ namespace Sound
             private void Start()
             {
                 isPlayingName = "";
-                source = gameObject.GetComponent<AudioSource>();
+                loop = false;
+                if (source == null)
+                    source = gameObject.GetComponent<AudioSource>();
                 sm = GameObject.FindGameObjectWithTag("Sound").GetComponent<SoundManager>();
             }
 
@@ -34,8 +36,11 @@ namespace Sound
                     source.clip = sm.sounds[name];
                     source.Play();
                     if (loop == true)
-                        source.loop = true;
-                        source.clip = sm.sounds[isPlayingName];
+                        if (sm.sounds.ContainsKey(isPlayingName))
+                        {
+                            source.loop = true;
+                            source.clip = sm.sounds[isPlayingName];
+                        }
                 }
             }
 

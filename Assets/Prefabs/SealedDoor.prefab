@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &5949434543215654698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7719953475717255239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4427958673862c945a6b6f6bec33c1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 4101369758968508924}
 --- !u!1001 &4429178423088703730
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72,6 +85,11 @@ PrefabInstance:
       propertyPath: isLocked
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6220969202768787641, guid: 466df5404882aeb48ac5e5465e43ec0a,
+        type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 5949434543215654698}
     - target: {fileID: 6220969202768787643, guid: 466df5404882aeb48ac5e5465e43ec0a,
         type: 3}
       propertyPath: m_Sprite
@@ -93,8 +111,42 @@ PrefabInstance:
       propertyPath: purpleLight
       value: 
       objectReference: {fileID: 1257982330931359593}
+    - target: {fileID: 3180702478466223989, guid: 466df5404882aeb48ac5e5465e43ec0a,
+        type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 2316992674918867400}
+    - target: {fileID: 2112195650375272762, guid: 466df5404882aeb48ac5e5465e43ec0a,
+        type: 3}
+      propertyPath: source
+      value: 
+      objectReference: {fileID: 4101369758968508924}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 466df5404882aeb48ac5e5465e43ec0a, type: 3}
+--- !u!1 &7719953475717255239 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6220969202768787637, guid: 466df5404882aeb48ac5e5465e43ec0a,
+    type: 3}
+  m_PrefabInstance: {fileID: 4429178423088703730}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &4101369758968508924 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 404589904154990862, guid: 466df5404882aeb48ac5e5465e43ec0a,
+    type: 3}
+  m_PrefabInstance: {fileID: 4429178423088703730}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2316992674918867400 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2112195650375272762, guid: 466df5404882aeb48ac5e5465e43ec0a,
+    type: 3}
+  m_PrefabInstance: {fileID: 4429178423088703730}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4427958673862c945a6b6f6bec33c1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &7223608203177879056 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 6433659439748026082, guid: 466df5404882aeb48ac5e5465e43ec0a,

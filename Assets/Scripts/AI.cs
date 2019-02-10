@@ -19,10 +19,12 @@ public class AI : MonoBehaviour
 
     private void Start()
     {
+        sound.loopPlay("footstep");
         pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         rb = GetComponent<Rigidbody2D>();
         goLeft = true;
         isMoving = true;
+        playloop = true;
     }
 
     private void Update()
@@ -43,14 +45,14 @@ public class AI : MonoBehaviour
         if (!isMoving && !pc.IsHidden())
         {
             playloop = false;
-            sound.loopStop();
             rb.velocity = Vector2.zero;
             return;
-        } else if (playloop == false)
+        } else
         {
             playloop = true;
-            sound.loopPlay("footstep");
         }
+        if (playloop)
+            sound.source.volume = 1f - (Vector2.Distance(GameObject.FindGameObjectWithTag("Player").transform.position, gameObject.transform.position) / 5f);
         rb.velocity = new Vector2(((goLeft) ? -1 : 1) * speed * Time.deltaTime, rb.velocity.y);
         RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(((goLeft) ? -1 : 1), 0f), maxDist, 1 << 10);
         if (hit.distance > 0f)

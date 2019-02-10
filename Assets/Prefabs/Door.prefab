@@ -169,6 +169,7 @@ GameObject:
   - component: {fileID: 4643621093567228622}
   - component: {fileID: 987897234006088467}
   - component: {fileID: 3180702478466223989}
+  - component: {fileID: 2112195650375272762}
   m_Layer: 14
   m_Name: AIDetection
   m_TagString: Untagged
@@ -228,8 +229,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6369a9cdd0298fa41a2de5c95d8c2625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sound: {fileID: 2112195650375272762}
   yellowLight: {fileID: 6433659439748026082}
   purpleLight: {fileID: 3171336836117645211}
+--- !u!114 &2112195650375272762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5383071006551845344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4427958673862c945a6b6f6bec33c1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 404589904154990862}
 --- !u!1 &6220969202768787637
 GameObject:
   m_ObjectHideFlags: 0

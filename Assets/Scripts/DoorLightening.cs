@@ -1,10 +1,13 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using Sound.play;
 
 public class DoorLightening : MonoBehaviour
 {
     private List<GameObject> closeGos = new List<GameObject>();
 
+    [SerializeField]
+    private playSound sound;
     DoorLightening otherDoor;
 
     [SerializeField]
@@ -12,6 +15,7 @@ public class DoorLightening : MonoBehaviour
 
     private void Start()
     {
+        //sound.loopPlay("footstep");
         int? tmp = null;
         otherDoor = transform.parent.GetComponent<Door>().GetNextDoor(ref tmp).GetComponentInChildren<DoorLightening>();
     }
@@ -87,6 +91,7 @@ public class DoorLightening : MonoBehaviour
 
     public void LightYellow(float intensity)
     {
+        //sound.source.volume = intensity % Vector2.Distance(GameObject.FindGameObjectWithTag("Player").transform.position, gameObject.transform.position);
         yellowLight.gameObject.SetActive(true);
         yellowLight.color = new Color(yellowLight.color.r, yellowLight.color.g, yellowLight.color.b, intensity);
     }
