@@ -8879,5 +8879,10 @@ PrefabInstance:
       propertyPath: clothesLife.Array.data[4]
       value: 
       objectReference: {fileID: 333604146}
+    - target: {fileID: 2833799529197972019, guid: 64b7f55185296584188e0dabac171930,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64b7f55185296584188e0dabac171930, type: 3}
