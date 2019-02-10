@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private int currMentalHealth;
 
     [SerializeField]
-    private Sprite baseSprite;
+    private Sprite baseSprite, hiddenSprite;
 
     [SerializeField]
     private int maxLife = 1;
@@ -176,6 +176,7 @@ public class PlayerController : MonoBehaviour
                 s.enabled = true;
             firstArm.enabled = false;
             secondArm.enabled = true;
+            sr.sprite = hiddenSprite;
             rb.velocity = Vector2.zero;
             isHidding = true;
             transform.parent.GetComponent<RoomManager>().DisableAll();
@@ -190,6 +191,7 @@ public class PlayerController : MonoBehaviour
                 s.enabled = false;
             firstArm.enabled = true;
             secondArm.enabled = false;
+            sr.sprite = baseSprite;
             sound.loopStop();
             sound.source.volume = 0;
             sr.sprite = baseSprite;
