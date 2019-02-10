@@ -92,6 +92,13 @@ public class ProceduralGeneration : MonoBehaviour
             soulGo.name = "Soul";
         }
         randomInt = Random.Range(0, 3);
+        if (randomInt <= 0)
+        {
+            if (Random.Range(0, 3) == 0)
+                randomInt = 0;
+            else
+                randomInt = 1;
+        }
         for (int i = 0; i < randomInt; i++)
         {
             GameObject soulGo;

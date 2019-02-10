@@ -264,11 +264,14 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "<b>Warning/Attention/:</b>\n\nThis game contains sensitive content that
-    is unadapted to the younger audience.\r\nAll characters in this game are at least
-    18 years old.\nPress enter to continue...\n\nCe jeu contient du contenu sensible
-    qui peut \xEAtre inadapte jeune publique.\r\nToutes les personnes presentes dans
-    ce jeu ont au moins 18 ans.\nAppuyez sur entree pour continuer..."
+  m_Text: "<b>Warning/Attention/Waarschuwing:</b>\n\nThis game contains sensitive
+    content that is inappropriate to the younger audience.\r\nAll characters in this
+    game are at least 18 years old.\nPress enter to continue...\n\nCe jeu contient
+    du contenu sensible qui peut \xEAtre inadapte jeune publique.\r\nToutes les personnes
+    presentes dans ce jeu ont au moins 18 ans.\nAppuyez sur entree pour continuer...\n\nDeze
+    game bevat gevoelige inhoud die niet geschikt is voor het jongere publiek.\r\nAlle
+    personages in dit spel zijn minstens 18 jaar oud.\r\nDruk op Enter om door te
+    gaan..."
 --- !u!222 &678406235
 CanvasRenderer:
   m_ObjectHideFlags: 0
