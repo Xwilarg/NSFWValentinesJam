@@ -1,12 +1,20 @@
 ﻿using UnityEngine;
+using Sound.play;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Soul : MonoBehaviour
 {
+    [SerializeField]
+    private playSound sound;
     private const float speed = 200f;
     private float angle;
 
     private Rigidbody2D rb;
+
+    public playSound getSound()
+    {
+        return sound;
+    }
 
     private void Start()
     {

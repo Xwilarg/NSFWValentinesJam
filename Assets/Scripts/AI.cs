@@ -1,8 +1,12 @@
 ﻿using UnityEngine;
+using Sound.play;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class AI : MonoBehaviour
 {
+    [SerializeField]
+    private playSound sound;
+    private bool playloop;
     private Rigidbody2D rb;
     private const float speed = 300f;
     private const float maxDist = 2f;
@@ -38,8 +42,14 @@ public class AI : MonoBehaviour
         }
         if (!isMoving && !pc.IsHidden())
         {
+            playloop = false;
+            sound.loopStop();
             rb.velocity = Vector2.zero;
             return;
+        } else if (playloop == false)
+        {
+            playloop = true;
+            sound.loopPlay("footstep");
         }
         rb.velocity = new Vector2(((goLeft) ? -1 : 1) * speed * Time.deltaTime, rb.velocity.y);
         RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(((goLeft) ? -1 : 1), 0f), maxDist, 1 << 10);
