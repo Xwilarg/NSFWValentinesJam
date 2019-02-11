@@ -120,6 +120,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        rb.velocity = Vector2.zero;
         if (Input.GetButtonDown("Interract"))
         {
             if (!isHidding && currentDoor != null)
@@ -156,7 +157,6 @@ public class PlayerController : MonoBehaviour
                     gameObject.layer = 12;
                     foreach (Transform t in gameObject.transform)
                         t.gameObject.layer = 12;
-                    rb.velocity = Vector2.zero;
                     isInWardrobe = true;
                     sr.enabled = false;
                     foreach (SpriteRenderer tmpSr in clothesLife)
