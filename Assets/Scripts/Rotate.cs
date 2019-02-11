@@ -2,7 +2,7 @@
 
 public class Rotate : MonoBehaviour
 {
-    private const float speed = 3f;
+    private const float speed = 5f;
 
     private void Update()
     {
