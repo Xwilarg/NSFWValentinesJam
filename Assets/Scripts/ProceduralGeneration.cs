@@ -94,7 +94,7 @@ public class ProceduralGeneration : MonoBehaviour
         randomInt = Random.Range(0, 3);
         if (randomInt <= 0)
         {
-            if (Random.Range(0, 3) == 0)
+            if (Random.Range(0, 5) == 0)
                 randomInt = 0;
             else
                 randomInt = 1;
@@ -110,7 +110,13 @@ public class ProceduralGeneration : MonoBehaviour
         }
         randomInt = Random.Range(-1, 3);
         if (randomInt < 0)
-            randomInt = 0;
+            if (randomInt <= 0)
+            {
+                if (Random.Range(0, 3) == 0)
+                    randomInt = 0;
+                else
+                    randomInt = 1;
+            }
         for (int i = 0; i < randomInt; i++)
         {
             int value;

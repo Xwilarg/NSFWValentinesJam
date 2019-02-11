@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer sr;
     private const float speed = 600f;
 
-    private const int maxMentalHealth = 5;
+    private const int maxMentalHealth = 10;
     private int currMentalHealth;
 
     [SerializeField]
