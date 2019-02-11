@@ -31,7 +31,7 @@ public class ProceduralGeneration : MonoBehaviour
     private void Start()
     {
         currX = 50f;
-        int maxRoom = Random.Range(5, 7);
+        int maxRoom = Random.Range(7, 10);
         Door d = firstDoor;
         for (int i = 0; i < maxRoom; i++)
             d = GenerateCorridor(d);
@@ -82,7 +82,7 @@ public class ProceduralGeneration : MonoBehaviour
         GameObject doorExit = Instantiate(prefabDoor, other);
         doorExit.transform.localPosition = new Vector2(xPosEnd, yPos);
         doorExit.name = "FinalDoor";
-        int randomInt = Random.Range(-1, 5);
+        int randomInt = Random.Range(0, 5);
         if (randomInt < 0)
             randomInt = 0;
         for (int i = 0; i < randomInt; i++)
