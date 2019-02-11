@@ -58,6 +58,8 @@ namespace Sound
             sounds.Add("invocation4", audioClips[41]);
             sounds.Add("invocation5", audioClips[42]);
             sounds.Add("invocation6", audioClips[43]);
+            sounds.Add("invocation7", audioClips[44]);
+            sounds.Add("end0", audioClips[45]);
         }
     }
 }

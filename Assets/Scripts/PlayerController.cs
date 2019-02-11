@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField]
     private playSound sound;
+    private bool isTakingDamages;
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     private const float speed = 600f;
@@ -71,10 +72,21 @@ public class PlayerController : MonoBehaviour
 
     private bool isHidding, isInWardrobe;
 
-    private GameObject currentDoor, currentWardrobe;
+    private GameObject currentDoor, currentWardrobe, lightSound;
+    private AudioSource lightSoundSource;
 
     public void TakeDamage()
     {
+        if (lightSound == null)
+            lightSound = new GameObject("LightSound", typeof(AudioSource));
+        if (lightSoundSource == null)
+            lightSoundSource = lightSound.GetComponent<AudioSource>();
+
+        if (!lightSoundSource.isPlaying)
+        {
+            lightSoundSource.clip = sound.GetSoundManager().sounds["dmgClothe"];
+            lightSoundSource.Play();
+        }
         float newLife = life - (4f * Time.deltaTime);
         if (newLife < 0.0f)
         {

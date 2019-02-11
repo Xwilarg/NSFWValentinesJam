@@ -42,27 +42,27 @@ public class Dialog : MonoBehaviour
         else if (id == 1)
         {
             shake.ShakeCamera();
-            Enable(Constants.GetLine("student", lang) + " 1", Constants.GetLine("invocation1", lang), voice.sounds["footstep"]);
+            Enable(Constants.GetLine("student", lang) + " 1", Constants.GetLine("invocation1", lang), voice.sounds["invocation1"]);
         }
         else if (id == 2)
-            Enable(Constants.GetLine("student", lang) + " 2", Constants.GetLine("invocation2", lang), voice.sounds["footstep"]);
+            Enable(Constants.GetLine("student", lang) + " 2", Constants.GetLine("invocation2", lang), voice.sounds["invocation2"]);
         else if (id == 3)
         {
             reiSr.enabled = true;
-            Enable(Constants.GetLine("student", lang) + " 3", Constants.GetLine("invocation3", lang), voice.sounds["footstep"]);
+            Enable(Constants.GetLine("student", lang) + " 3", Constants.GetLine("invocation3", lang), voice.sounds["invocation3"]);
         }
         else if (id == 4)
         {
             flash.FlashPanel();
             reiSr.enabled = false;
-            Enable(Constants.GetLine("student", lang) + " 2", Constants.GetLine("invocation4", lang), voice.sounds["footstep"]);
+            Enable(Constants.GetLine("student", lang) + " 2", Constants.GetLine("invocation4", lang), voice.sounds["invocation4"]);
         }
         else if (id == 5)
-            Enable(Constants.GetLine("student", lang) + " 1", Constants.GetLine("invocation5", lang), voice.sounds["footstep"]);
+            Enable(Constants.GetLine("student", lang) + " 1", Constants.GetLine("invocation5", lang), voice.sounds["invocation5"]);
         else if (id == 6)
-            Enable(Constants.GetLine("student", lang) + " 3", Constants.GetLine("invocation6", lang), voice.sounds["footstep"]);
+            Enable(Constants.GetLine("student", lang) + " 3", Constants.GetLine("invocation6", lang), voice.sounds["invocation6"]);
         else if (id == 7)
-            Enable("Tsuma", Constants.GetLine("invocation7", lang), voice.sounds["footstep"]);
+            Enable("Tsuma", Constants.GetLine("invocation7", lang), voice.sounds["invocation7"]);
         else if (id == 8)
             SceneManager.LoadScene("Main");
         else if (id == 100)
