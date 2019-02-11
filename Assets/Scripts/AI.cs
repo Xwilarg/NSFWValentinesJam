@@ -13,9 +13,11 @@ public class AI : MonoBehaviour
     private PlayerController pc;
     private bool goLeft;
     public bool isMoving { set; private get; }
+    Animator animator;
 
     private void Start()
     {
+        animator = this.gameObject.GetComponentInChildren<Animator>();
         sound.loopPlay("footstep");
         pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         rb = GetComponent<Rigidbody2D>();
@@ -26,6 +28,7 @@ public class AI : MonoBehaviour
 
     private void Update()
     {
+        animator.SetBool("isMoving", isMoving);
         if (pc == null)
         {
             pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
