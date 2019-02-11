@@ -76,9 +76,12 @@ public class OccultLv1 : MonoBehaviour
                 {
                     foreach (Transform t in go.transform)
                     {
-                        SpriteRenderer sr = t.GetComponent<SpriteRenderer>();
-                        if (sr != null)
-                            manager.AddSprite(sr);
+                        if (t.name != "Grimor")
+                        {
+                            SpriteRenderer sr = t.GetComponent<SpriteRenderer>();
+                            if (sr != null)
+                                manager.AddSprite(sr);
+                        }
                     }
                 }
                 manager.RemoveSprite(GetComponent<SpriteRenderer>());
