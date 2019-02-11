@@ -132,7 +132,7 @@ public class PlayerController : MonoBehaviour
                     holyWaterText.text = holyWaterCount.ToString();
                 }
             }
-            else if (currentWardrobe != null)
+            else if (currentWardrobe != null && !isHidding)
             {
                 if (isInWardrobe)
                 {
