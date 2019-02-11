@@ -181,7 +181,7 @@ public class PlayerController : MonoBehaviour
                         life += Random.Range(1f, 2f);
                     if (life > maxLife)
                         life = maxLife;
-                    sliderClothes.value = life / maxLife;
+                    updateLife(life);
                     holyWaterText.text = holyWaterCount.ToString();
                 }
             }
