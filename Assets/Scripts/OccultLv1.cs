@@ -25,14 +25,14 @@ public class OccultLv1 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (playerFound != false && collision.name == "FinalDoor")
+        if (playerFound == true && collision.name == "FinalDoor")
         {
             isOnDoor = true;
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (playerFound != false && collision.name == "FinalDoor")
+        if (playerFound == true && collision.name == "FinalDoor")
         {
             isOnDoor = true;
         }
