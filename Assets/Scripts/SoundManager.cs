@@ -39,6 +39,25 @@ namespace Sound
             sounds.Add("cum3", audioClips[22]);
             sounds.Add("cum4", audioClips[23]);
             sounds.Add("cum5", audioClips[24]);
+            sounds.Add("1stYear1", audioClips[25]);
+            sounds.Add("1stYear2", audioClips[26]);
+            sounds.Add("2ndYear1-1", audioClips[27]);
+            sounds.Add("2ndYear1-2", audioClips[28]);
+            sounds.Add("2ndYear1-3", audioClips[29]);
+            sounds.Add("2ndYear2-1", audioClips[30]);
+            sounds.Add("2ndYear2-2", audioClips[31]);
+            sounds.Add("3rdYear1", audioClips[32]);
+            sounds.Add("3rdYear2", audioClips[33]);
+            sounds.Add("spirit1-1", audioClips[34]);
+            sounds.Add("spirit1-2", audioClips[35]);
+            sounds.Add("spirit2-1", audioClips[36]);
+            sounds.Add("spirit2-2", audioClips[37]);
+            sounds.Add("invocation1", audioClips[38]);
+            sounds.Add("invocation2", audioClips[39]);
+            sounds.Add("invocation3", audioClips[40]);
+            sounds.Add("invocation4", audioClips[41]);
+            sounds.Add("invocation5", audioClips[42]);
+            sounds.Add("invocation6", audioClips[43]);
         }
     }
 }

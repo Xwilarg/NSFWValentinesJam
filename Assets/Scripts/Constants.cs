@@ -53,7 +53,7 @@
         new Language("invocation4", "Qu'est ce que c'etait que ca", "What was that ?",                "Wat was dat?"),
         new Language("invocation5", "Ou est-elle ?", "Where is she ?",                 "Waar is ze?"),
         new Language("invocation6", "Fouillez l'ecole!", "Search the school!",             "Doorzoek de school!"),
-        new Language("invocation7", "(C'etait pas ma soeur ?)", "(Wasn't it my sister ?)",        "(Was dat niet mijn zus?)"),
+        new Language("invocation7", "(Ne serait-ce pas ma soeur ?)", "(Wasn't it my sister ?)",        "(Was dat niet mijn zus?)"),
         new Language("Introducation", "Ma soeur adoree... je peux sentir qu'elle est proche... m-mais .. mais ou est-elle ?", "My beloved sister... I can feel she is near... But where ?",
             "Mijn geliefde zus... Ik kan voelen dat ze in de buurt is... Maar waar?"),
         new Language("Teacher1", "Qu'est ce que c'est ?", "What is it ?",                        "Wat is het?"),
