@@ -15,21 +15,23 @@ public class ProfessorLight : MonoBehaviour
 
     private void Update()
     {
-        if (takeDamage)
-            pc.TakeDamage();
+        if (ai != null)
+        {
+            bool res = !takeDamage || pc.IsInWardrobe() || pc.IsHidden();
+            ai.isMoving = res;
+            if (!res)
+                pc.TakeDamage();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            if (!pc.IsHidden() && !pc.IsInWardrobe())
-            {
-                if (ai != null)
-                    ai.isMoving = false;
-                pc = collision.GetComponent<PlayerController>();
-                takeDamage = true;
-            }
+            if (ai != null)
+                ai.isMoving = false;
+            pc = collision.GetComponent<PlayerController>();
+            takeDamage = true;
         }
     }
 
@@ -38,8 +40,7 @@ public class ProfessorLight : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             if (ai != null)
-                ai.isMoving = true;
-            takeDamage = false;
+                takeDamage = false;
         }
     }
 }
