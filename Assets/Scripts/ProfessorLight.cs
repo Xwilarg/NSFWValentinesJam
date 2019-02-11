@@ -23,11 +23,13 @@ public class ProfessorLight : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            if (ai != null)
-                ai.isMoving = false;
-            pc = collision.GetComponent<PlayerController>();
             if (!pc.IsHidden() && !pc.IsInWardrobe())
+            {
+                if (ai != null)
+                    ai.isMoving = false;
+                pc = collision.GetComponent<PlayerController>();
                 takeDamage = true;
+            }
         }
     }
 
