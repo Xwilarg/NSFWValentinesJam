@@ -31,6 +31,7 @@ public class Dialog : MonoBehaviour
             lang = Constants.LanguageName.en;
     }
 
+    [SerializeField]
     private int id = 0;
 
     public void Launch()
@@ -64,6 +65,19 @@ public class Dialog : MonoBehaviour
             Enable("Tsuma", Constants.GetLine("invocation7", lang), voice.sounds["footstep"]);
         else if (id == 8)
             SceneManager.LoadScene("Main");
+        else if (id == 100)
+            Enable("Tsuma", Constants.GetLine("ending1", lang), voice.sounds["footstep"]);
+        else if (id == 101)
+            Enable("Tsuma", Constants.GetLine("ending2", lang), voice.sounds["footstep"]);
+        else if (id == 102)
+            Enable("Tsuma", Constants.GetLine("ending3", lang), voice.sounds["footstep"]);
+        else if (id == 103)
+        {
+            Enable("Tsuma", Constants.GetLine("ending3", lang), voice.sounds["footstep"]);
+            GameObject go = new GameObject("GameOverManager", typeof(GameOverManager));
+            go.GetComponent<GameOverManager>().type = GameOverManager.EndType.Victory;
+            SceneManager.LoadScene("Ending");
+        }
         id++;
     }
 
