@@ -26,6 +26,14 @@ public class AI : MonoBehaviour
 
     private void Update()
     {
+        if (pc == null)
+        {
+            pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+            if (pc == null)
+            {
+                return;
+            }
+        }
         if (!isMoving && !pc.IsHidden())
         {
             playloop = false;
