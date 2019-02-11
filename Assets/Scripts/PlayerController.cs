@@ -142,6 +142,9 @@ public class PlayerController : MonoBehaviour
                     sr.enabled = true;
                     foreach (SpriteRenderer tmpSr in clothesLife)
                         tmpSr.enabled = true;
+                    foreach (SpriteRenderer s in firstsClothes)
+                        s.enabled = true;
+                    firstArm.enabled = true;
                     isInWardrobe = false;
                     currentWardrobe.GetComponent<Wardrobe>().Exit();
                 }
@@ -155,6 +158,9 @@ public class PlayerController : MonoBehaviour
                     sr.enabled = false;
                     foreach (SpriteRenderer tmpSr in clothesLife)
                         tmpSr.enabled = false;
+                    foreach (SpriteRenderer s in firstsClothes)
+                        s.enabled = false;
+                    firstArm.enabled = false;
                     bool wasEmpty = currentWardrobe.GetComponent<Wardrobe>().Enter(ref holyWaterCount);
                     if (!wasEmpty)
                         life += Random.Range(1f, 2f);
