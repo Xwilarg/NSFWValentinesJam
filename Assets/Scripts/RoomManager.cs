@@ -65,7 +65,14 @@ public class RoomManager : MonoBehaviour
         foreach (var v in tilemapRenderers)
             v.material.color = new Color(v.material.color.r, v.material.color.g, v.material.color.b, color);
         foreach (var v in spriteRenderers)
-            v.color = new Color(v.material.color.r, v.material.color.g, v.material.color.b, color);
+        {
+            try
+            {
+                v.color = new Color(v.material.color.r, v.material.color.g, v.material.color.b, color);
+            }
+            catch (MissingReferenceException)
+            { }
+        }
     }
 
     public void DisableAll()
