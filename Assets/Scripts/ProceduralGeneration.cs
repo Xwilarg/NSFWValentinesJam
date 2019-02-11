@@ -106,7 +106,7 @@ public class ProceduralGeneration : MonoBehaviour
                 soulGo = Instantiate(firstYearPrefab, other);
             else
                 soulGo = Instantiate(teacherPrefab, other);
-            soulGo.transform.localPosition = new Vector2(Random.Range(-7f, 24f), yPos);
+            soulGo.transform.localPosition = new Vector2(Random.Range(-7f, 24f), yPos + 2.0f);
         }
         randomInt = Random.Range(-1, 3);
         if (randomInt < 0)

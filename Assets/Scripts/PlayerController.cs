@@ -75,9 +75,12 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage()
     {
-        float tmp = life - (4f * Time.deltaTime);
-        tmp = (tmp >= 0.0f) ? tmp : 0.0f;
-        updateLife(tmp);
+        float newLife = life - (4f * Time.deltaTime);
+        if (newLife < 0.0f)
+        {
+            newLife = 0.0f;
+        }
+        updateLife(newLife);
     }
 
     public bool IsHidden()
