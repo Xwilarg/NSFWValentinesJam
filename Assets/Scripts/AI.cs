@@ -45,6 +45,8 @@ public class AI : MonoBehaviour
         }
         if (playloop)
             sound.source.volume = 1f - (Vector2.Distance(GameObject.FindGameObjectWithTag("Player").transform.position, gameObject.transform.position) / 5f);
+        if (!isMoving)
+            return;
         rb.velocity = new Vector2(((goLeft) ? -1 : 1) * speed * Time.deltaTime, rb.velocity.y);
         RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(((goLeft) ? -1 : 1), 0f), maxDist, 1 << 10);
         if (hit.distance > 0.0001f)
